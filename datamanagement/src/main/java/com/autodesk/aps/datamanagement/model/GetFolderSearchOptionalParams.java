@@ -1,0 +1,155 @@
+/** 
+ * APS SDK
+ *
+ * The APS Platform contains an expanding collection of web service components that can be used with Autodesk cloud-based products or your own technologies. Take advantage of Autodesk’s expertise in design and engineering.
+ *
+ * Data Management
+ * The Data Management API provides a unified and consistent way to access data across BIM 360 Team, Fusion Team (formerly known as A360 Team), BIM 360 Docs, A360 Personal, and the Object Storage Service.  With this API, you can accomplish a number of workflows, including accessing a Fusion model in Fusion Team and getting an ordered structure of items, IDs, and properties for generating a bill of materials in a 3rd-party process. Or, you might want to superimpose a Fusion model and a building model to use in the Viewer.
+ *
+ * Contact: aps.help@autodesk.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.autodesk.aps.datamanagement.model;
+
+import java.util.List;
+
+/**
+ * Represents optional parameters for the `getFolderSearch` method.
+ * This class uses the Builder pattern to allow flexible construction of
+ * objects.
+ */
+public class GetFolderSearchOptionalParams {
+    private List<Filter> filters;
+    private Integer pageNumber;
+    private String accessToken;
+
+    private GetFolderSearchOptionalParams(Builder builder) {
+        this.filters = builder.filters;
+        this.pageNumber = builder.pageNumber;
+        this.accessToken = builder.accessToken;
+    }
+
+    /**
+     * Represents a filter with field name, operator type, and values.
+     */
+    public static class Filter {
+        private String fieldName;
+        private ComparisonTypes operatorType;
+        private List<String> values;
+
+        public Filter(String fieldName, ComparisonTypes operatorType, List<String> values) {
+            this.fieldName = fieldName;
+            this.operatorType = operatorType;
+            this.values = values;
+        }
+
+        public String getFieldName() {
+            return fieldName;
+        }
+
+        public ComparisonTypes getOperatorType() {
+            return operatorType;
+        }
+
+        public List<String> getValues() {
+            return values;
+        }
+    }
+
+    /**
+     * Builder class for constructing instances of GetFolderSearchOptionalParams.
+     */
+    public static class Builder {
+        private List<Filter> filters;
+        private Integer pageNumber;
+        private String accessToken;
+
+        /**
+         * @param filters List of filters with field names, operator types, and values.
+         *
+         * @return The Builder instance for chaining.
+         */
+        public Builder filters(List<Filter> filters) {
+            this.filters = filters;
+            return this;
+        }
+
+        /**
+         * @param pageNumber Specifies what page to return. Page numbers are 0-based
+         *                   (the first page is page 0).
+         *
+         * @return The Builder instance for chaining.
+         */
+        public Builder pageNumber(Integer pageNumber) {
+            this.pageNumber = pageNumber;
+            return this;
+        }
+
+        /**
+         * @param accessToken The access token string.
+         *
+         * @return The Builder instance for chaining.
+         */
+        public Builder accessToken(String accessToken) {
+            this.accessToken = accessToken;
+            return this;
+        }
+
+        /**
+         * Builds and returns an instance of GetFolderSearchOptionalParams.
+         * 
+         * @return GetFolderSearchOptionalParams object.
+         */
+        public GetFolderSearchOptionalParams build() {
+            return new GetFolderSearchOptionalParams(this);
+        }
+    }
+
+    // Getters for each field
+    /**
+     * Gets the filters value.
+     *
+     * @return List&lt;Filter&gt;
+     */
+    public List<Filter> getFilters() {
+        return filters;
+    }
+
+    /**
+     * Gets the pageNumber value.
+     *
+     * @return Integer
+     */
+    public Integer getPageNumber() {
+        return pageNumber;
+    }
+
+    /**
+     * Gets the access token for authentication.
+     *
+     * @return String.
+     */
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    /**
+     * Sets the access token for authentication.
+     * 
+     * @param accessToken The access token string.
+     */
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+}
