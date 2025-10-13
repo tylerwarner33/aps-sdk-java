@@ -1,6 +1,6 @@
 # Contributing to APS SDK
 
-We work hard to provide an excellent SDK for the Autodesk community, and we greatly appreciante your feedback and contributions. Please read through this document before submitting any issues or pull requests. 
+We work hard to provide an excellent SDK for the Autodesk community, and we greatly appreciate your feedback and contributions. Please read through this document before submitting any issues or pull requests. 
 
 For general questions (_how to_), please use the [APS Get Help](https://aps.autodesk.com/get-help) form. We strongly encourage using [StackOverflow](http://stackoverflow.com/tags/autodesk-platform-services).
 
