@@ -23,28 +23,30 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Indicates whether this particular part uploaded to S3 is valid. Possible values are:  - &#x60;&#x60;Pending&#x60;&#x60; - No such part was uploaded to S3 for this index.  - &#x60;&#x60;Unexpected&#x60;&#x60; - The eTag of the part in S3 does not match the one provided in the request.  - &#x60;&#x60;TooSmall&#x60;&#x60; - A chunk uploaded to S3 is smaller than 5MB. Only the final chunk can be smaller than 5MB.  - &#x60;&#x60;Unexpected+TooSmall&#x60;&#x60; - The chunk is both too small and has an eTag mismatch.  - &#x60;&#x60;Ok&#x60;&#x60; - The chunk has no issues.&#39; 
+ * Indicates whether this particular part uploaded to S3 is valid. Possible
+ * values are: - &#x60;&#x60;Pending&#x60;&#x60; - No such part was uploaded to
+ * S3 for this index. - &#x60;&#x60;Unexpected&#x60;&#x60; - The eTag of the
+ * part in S3 does not match the one provided in the request. -
+ * &#x60;&#x60;TooSmall&#x60;&#x60; - A chunk uploaded to S3 is smaller than
+ * 5MB. Only the final chunk can be smaller than 5MB. -
+ * &#x60;&#x60;Unexpected+TooSmall&#x60;&#x60; - The chunk is both too small and
+ * has an eTag mismatch. - &#x60;&#x60;Ok&#x60;&#x60; - The chunk has no
+ * issues.&#39;
  */
 public enum Status {
-  
+
   PENDING("Pending"),
-  
+
   UNEXPECTED("Unexpected"),
-  
+
   TOOSMALL("TooSmall"),
-  
+
   UNEXPECTED_TOOSMALL("Unexpected+TooSmall"),
-  
+
   OK("Ok");
 
   private String value;
@@ -73,4 +75,3 @@ public enum Status {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

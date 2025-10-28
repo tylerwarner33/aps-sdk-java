@@ -60,10 +60,10 @@ public class OssSample {
         try {
             var bucket = ossClient.getBucketDetails(bucketKey);
             System.out.println("Bucket details: " + bucket);
-            
+
             // With optional parameters
             var optionalParams = new GetBucketDetailsOptionalParams.Builder()
-            .accessToken("access-token").build();
+                    .accessToken("access-token").build();
             var bucketOpt = ossClient.getBucketDetails(bucketKey, optionalParams);
             System.out.println("Bucket details (optional): " + bucketOpt);
         } catch (Exception e) {
@@ -79,7 +79,7 @@ public class OssSample {
             var region = Region.US;
             var bucket = ossClient.createBucket(region, payload);
             System.out.println("Created bucket: " + bucket);
-            
+
             // With optional parameters
             var optionalParams = new CreateBucketOptionalParams.Builder()
                     .accessToken("access-token").build();
@@ -94,7 +94,7 @@ public class OssSample {
         try {
             var buckets = ossClient.getBuckets();
             System.out.println("Buckets: " + buckets);
-            
+
             // With optional parameters
             var optionalParams = new GetBucketsOptionalParams.Builder()
                     .region(Region.US)
@@ -112,7 +112,7 @@ public class OssSample {
         try {
             ossClient.deleteBucket(bucketKey);
             System.out.println("Deleted bucket: " + bucketKey);
-            
+
             // With optional parameters
             var optionalParams = new DeleteBucketOptionalParams.Builder()
                     .accessToken("access-token").build();
@@ -127,10 +127,9 @@ public class OssSample {
         try {
             var objects = ossClient.getObjects(bucketKey);
             System.out.println("Objects: " + objects);
-            
+
             // With optional parameters
-            var optionalParams = new
-            GetObjectsOptionalParams.Builder().limit(10).beginsWith("racbasic").build();
+            var optionalParams = new GetObjectsOptionalParams.Builder().limit(10).beginsWith("racbasic").build();
             var objectsOpt = ossClient.getObjects(bucketKey, optionalParams);
             System.out.println("Objects (optional): " + objectsOpt);
         } catch (Exception e) {
@@ -142,7 +141,7 @@ public class OssSample {
         try {
             var details = ossClient.getObjectDetails(bucketKey, objectKey);
             System.out.println("Object details: " + details);
-            
+
             // With optional parameters
             // var optionalParams = new
             // GetObjectDetailsOptionalParams.Builder().ifModifiedSince(LocalDateTime.now())
@@ -163,7 +162,7 @@ public class OssSample {
         try {
             ossClient.deleteObject(bucketKey, objectKey);
             System.out.println("Deleted object: " + objectKey);
-            
+
             // With optional parameters
             // var optionalParams = new DeleteObjectOptionalParams.Builder()
             // .accessToken("access-token").build();
@@ -179,7 +178,7 @@ public class OssSample {
             var details = ossClient.copyTo(bucketKey, objectKey, newObjectKey, new CopyToOptionalParams.Builder()
                     .accessToken(token).build());
             System.out.println("Copied object: " + details);
-            
+
             // With optional parameters
             // var optionalParams = new CopyToOptionalParams.Builder()
             // .accessToken("access-token").build();
@@ -195,7 +194,7 @@ public class OssSample {
         try {
             var response = ossClient.batchCompleteUpload(bucketKey);
             System.out.println("Batch complete upload response: " + response);
-            
+
             // With optional parameters
             var optionalParams = new BatchCompleteUploadOptionalParams.Builder()
                     .accessToken("access-token").build();
@@ -211,7 +210,7 @@ public class OssSample {
             var batchObj = new Batchsigneds3downloadObject();
             var response = ossClient.batchSignedS3Download(bucketKey, batchObj);
             System.out.println("Batch signed S3 download response: " + response);
-            
+
             // With optional parameters
             var optionalParams = new BatchSignedS3DownloadOptionalParams.Builder()
                     .accessToken("access-token").minutesExpiration(5).build();
@@ -226,7 +225,7 @@ public class OssSample {
         try {
             var response = ossClient.batchSignedS3Upload(bucketKey);
             System.out.println("Batch signed S3 upload response: " + response);
-            
+
             // With optional parameters
             var optionalParams = new BatchSignedS3UploadOptionalParams.Builder()
                     .accessToken("access-token").minutesExpiration(5).build();
@@ -242,7 +241,7 @@ public class OssSample {
             var body = new Completes3uploadBody();
             ossClient.completeSignedS3Upload(bucketKey, objectKey, "application/json", body);
             System.out.println("Completed signed S3 upload.");
-            
+
             // With optional parameters
             var optionalParams = new CompleteSignedS3UploadOptionalParams.Builder()
                     .accessToken("access-token").build();
@@ -257,7 +256,7 @@ public class OssSample {
         try {
             var signed = ossClient.createSignedResource(bucketKey, objectKey);
             System.out.println("Created signed resource: " + signed);
-            
+
             // With optional parameters
             CreateSignedResourceOptionalParams optionalParams = new CreateSignedResourceOptionalParams.Builder()
                     .accessToken("access-token").build();
@@ -272,7 +271,7 @@ public class OssSample {
         try {
             ossClient.deleteSignedResource(hash);
             System.out.println("Deleted signed resource: " + hash);
-            
+
             // With optional parameters
             DeleteSignedResourceOptionalParams optionalParams = new DeleteSignedResourceOptionalParams.Builder()
                     .accessToken("access-token").build();
@@ -287,7 +286,7 @@ public class OssSample {
         try {
             var file = ossClient.getSignedResource(hash);
             System.out.println("Got signed resource file: " + file);
-            
+
             // With optional parameters
             GetSignedResourceOptionalParams optionalParams = new GetSignedResourceOptionalParams.Builder()
                     .accessToken("access-token").build();
@@ -302,7 +301,7 @@ public class OssSample {
         try {
             var response = ossClient.signedS3Download(bucketKey, objectKey);
             System.out.println("Signed S3 download response: " + response);
-            
+
             // With optional parameters
             SignedS3DownloadOptionalParams optionalParams = new SignedS3DownloadOptionalParams.Builder()
                     .accessToken("access-token").minutesExpiration(5).build();
@@ -317,7 +316,7 @@ public class OssSample {
         try {
             var response = ossClient.signedS3Upload(bucketKey, objectKey);
             System.out.println("Signed S3 upload response: " + response);
-            
+
             // With optional parameters
             SignedS3UploadOptionalParams optionalParams = new SignedS3UploadOptionalParams.Builder()
                     .accessToken("access-token").minutesExpiration(5).build();
@@ -357,9 +356,9 @@ public class OssSample {
                     .xAdsRegion(Region.US)
                     .build();
             ObjectDetails chunkDetailsWithOptions = ossClient.uploadSignedResourcesChunk(
-                    hash, 
-                    "bytes=0-9", 
-                    "session-id", 
+                    hash,
+                    "bytes=0-9",
+                    "session-id",
                     bytes,
                     uploadChunkOptionalParams);
             System.out.println("Uploaded signed resources chunk (optional): " + chunkDetailsWithOptions);
@@ -378,8 +377,13 @@ public class OssSample {
                     .accessToken(token)
                     .requestIdPrefix("file_upload")
                     .progressCallback(progress -> System.out.println("Upload progress: " + progress + "%"))
+                    .xAdsMetaCacheControl("no-cache")
+                    .xAdsMetaContentDisposition("inline")
+                    .xAdsMetaContentEncoding("gzip")
+                    .xAdsMetaContentType("application/octet-stream")
                     .build();
-            ObjectDetails uploadResponseWithOptions = ossClient.uploadObject(bucketKey, objectKey, file, uploadOptionalParams);
+            ObjectDetails uploadResponseWithOptions = ossClient.uploadObject(bucketKey, objectKey, file,
+                    uploadOptionalParams);
             System.out.println("Uploaded object with options (file): " + uploadResponseWithOptions);
         } catch (Exception e) {
             System.out.println("Error in uploadObjectFile: " + e.getMessage());
@@ -398,7 +402,8 @@ public class OssSample {
                     .requestIdPrefix("bytes_upload")
                     .progressCallback(progress -> System.out.println("Upload progress: " + progress + "%"))
                     .build();
-            ObjectDetails uploadResponseWithOptions = ossClient.uploadObject(bucketKey, objectKey, bytes, uploadOptionalParams);
+            ObjectDetails uploadResponseWithOptions = ossClient.uploadObject(bucketKey, objectKey, bytes,
+                    uploadOptionalParams);
             System.out.println("Uploaded object with options: " + uploadResponseWithOptions);
         } catch (Exception e) {
             System.out.println("Error in uploadObjectBytes: " + e.getMessage());
@@ -457,7 +462,8 @@ public class OssSample {
                     .progressCallback(progress -> System.out.println("Download progress: " + progress + "%"))
                     .isCancelled(new AtomicBoolean(false))
                     .build();
-            java.io.InputStream downloadStreamWithOptions = ossClient.downloadObject(bucketKey, objectKey, downloadOptionalParams);
+            java.io.InputStream downloadStreamWithOptions = ossClient.downloadObject(bucketKey, objectKey,
+                    downloadOptionalParams);
             System.out.println("Downloaded object to memory with options");
         } catch (Exception e) {
             System.out.println("Error in downloadObjectToMemory: " + e.getMessage());

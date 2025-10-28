@@ -24,20 +24,22 @@
 package com.autodesk.aps.oss.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.AllowAccess;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * An object that represents the permissions allowed for a bucket.
  */
 @Schema(description = "An object that represents the permissions allowed for a bucket.")
 @JsonPropertyOrder({
-  CreateBucketsPayloadAllow.JSON_PROPERTY_AUTH_ID,
-  CreateBucketsPayloadAllow.JSON_PROPERTY_ACCESS
+    CreateBucketsPayloadAllow.JSON_PROPERTY_AUTH_ID,
+    CreateBucketsPayloadAllow.JSON_PROPERTY_ACCESS
 })
 @JsonTypeName("create_buckets_payload_allow")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -49,17 +51,17 @@ public class CreateBucketsPayloadAllow {
   public static final String JSON_PROPERTY_ACCESS = "access";
   private AllowAccess access;
 
-
   public CreateBucketsPayloadAllow authId(String authId) {
-    
+
     this.authId = authId;
     return this;
   }
 
-   /**
+  /**
    * The Client ID of the application.
+   * 
    * @return authId
-  **/
+   **/
   @Schema(required = true, description = "The Client ID of the application.")
   @JsonProperty(JSON_PROPERTY_AUTH_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -68,24 +70,23 @@ public class CreateBucketsPayloadAllow {
     return authId;
   }
 
-
   @JsonProperty(JSON_PROPERTY_AUTH_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAuthId(String authId) {
     this.authId = authId;
   }
 
-
   public CreateBucketsPayloadAllow access(AllowAccess access) {
-    
+
     this.access = access;
     return this;
   }
 
-   /**
+  /**
    * Get access
+   * 
    * @return access
-  **/
+   **/
   @Schema(required = true, description = "")
   @JsonProperty(JSON_PROPERTY_ACCESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -94,13 +95,11 @@ public class CreateBucketsPayloadAllow {
     return access;
   }
 
-
   @JsonProperty(JSON_PROPERTY_ACCESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccess(AllowAccess access) {
     this.access = access;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -142,4 +141,3 @@ public class CreateBucketsPayloadAllow {
   }
 
 }
-

@@ -23,24 +23,27 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Indicates the upload status of the requested object. Possible values are:  - &#x60;&#x60;complete&#x60;&#x60; - The upload process is finished. If the object was uploaded in chunks, assembly of chunks into the final object is also complete. - &#x60;&#x60;chunked&#x60;&#x60; - The object was uploaded in chunks, but assembly of chunks into the final object is still pending. &#x60;public-resource-fallback&#x60;&#x60; &#x3D; &#x60;&#x60;false&#x60;&#x60; - &#x60;&#x60;fallback&#x60;&#x60; - The object was uploaded in chunks, but assembly of chunks into the final object is still pending. &#x60;public-resource-fallback&#x60;&#x60; &#x3D; &#x60;&#x60;true&#x60;&#x60;  
+ * Indicates the upload status of the requested object. Possible values are: -
+ * &#x60;&#x60;complete&#x60;&#x60; - The upload process is finished. If the
+ * object was uploaded in chunks, assembly of chunks into the final object is
+ * also complete. - &#x60;&#x60;chunked&#x60;&#x60; - The object was uploaded in
+ * chunks, but assembly of chunks into the final object is still pending.
+ * &#x60;public-resource-fallback&#x60;&#x60; &#x3D;
+ * &#x60;&#x60;false&#x60;&#x60; - &#x60;&#x60;fallback&#x60;&#x60; - The object
+ * was uploaded in chunks, but assembly of chunks into the final object is still
+ * pending. &#x60;public-resource-fallback&#x60;&#x60; &#x3D;
+ * &#x60;&#x60;true&#x60;&#x60;
  */
 public enum DownloadStatus {
-  
+
   COMPLETE("complete"),
-  
+
   CHUNKED("chunked"),
-  
+
   FALLBACK("fallback");
 
   private String value;
@@ -69,4 +72,3 @@ public enum DownloadStatus {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

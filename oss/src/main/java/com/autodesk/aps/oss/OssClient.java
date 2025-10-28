@@ -1513,7 +1513,11 @@ public class OssClient extends BaseClient {
             InputStream inputStream = new FileInputStream(sourceToUpload);
             return this.ossFileTransfer.upload(bucketKey, objectKey, inputStream, sourceToUpload.length(),
                     uploadObjectOptionalParams.getAccessToken(), uploadObjectOptionalParams.getRequestIdPrefix(),
-                    uploadObjectOptionalParams.getProgressCallback()).getData();
+                    uploadObjectOptionalParams.getProgressCallback(),
+                    uploadObjectOptionalParams.getXAdsMetaContentType(),
+                    uploadObjectOptionalParams.getXAdsMetaContentDisposition(),
+                    uploadObjectOptionalParams.getXAdsMetaContentEncoding(),
+                    uploadObjectOptionalParams.getXAdsMetaCacheControl()).getData();
         } catch (OssApiException e) {
             throw e;
         } catch (Exception e) {
@@ -1566,7 +1570,11 @@ public class OssClient extends BaseClient {
             InputStream inputStream = new ByteArrayInputStream(sourceToUpload);
             return this.ossFileTransfer.upload(bucketKey, objectKey, inputStream, (long) sourceToUpload.length,
                     uploadObjectOptionalParams.getAccessToken(), uploadObjectOptionalParams.getRequestIdPrefix(),
-                    uploadObjectOptionalParams.getProgressCallback()).getData();
+                    uploadObjectOptionalParams.getProgressCallback(),
+                    uploadObjectOptionalParams.getXAdsMetaContentType(),
+                    uploadObjectOptionalParams.getXAdsMetaContentDisposition(),
+                    uploadObjectOptionalParams.getXAdsMetaContentEncoding(),
+                    uploadObjectOptionalParams.getXAdsMetaCacheControl()).getData();
         } catch (OssApiException e) {
             throw e;
         } catch (Exception e) {
@@ -1586,8 +1594,9 @@ public class OssClient extends BaseClient {
      * @param sourceToUpload The stream to be uploaded.
      * @throws OssApiException when an API call fails.
      */
-    public void uploadObject(String bucketKey, String objectKey, InputStream sourceToUpload) throws OssApiException {
-        uploadObject(bucketKey, objectKey, sourceToUpload, null);
+    public ObjectDetails uploadObject(String bucketKey, String objectKey, InputStream sourceToUpload)
+            throws OssApiException {
+        return uploadObject(bucketKey, objectKey, sourceToUpload, null);
     }
 
     /**
@@ -1604,7 +1613,7 @@ public class OssClient extends BaseClient {
      *                                   for the uploadObject method.
      * @throws OssApiException when an API call fails.
      */
-    public void uploadObject(String bucketKey, String objectKey, InputStream sourceToUpload,
+    public ObjectDetails uploadObject(String bucketKey, String objectKey, InputStream sourceToUpload,
             UploadObjectOptionalParams uploadObjectOptionalParams) throws OssApiException {
         try {
             if (uploadObjectOptionalParams == null) {
@@ -1615,9 +1624,13 @@ public class OssClient extends BaseClient {
             } else if (uploadObjectOptionalParams.getAccessToken() == null) {
                 uploadObjectOptionalParams.setAccessToken(this.getAuthenticationProvider().getAccessToken());
             }
-            this.ossFileTransfer.upload(bucketKey, objectKey, sourceToUpload, null,
+            return this.ossFileTransfer.upload(bucketKey, objectKey, sourceToUpload, null,
                     uploadObjectOptionalParams.getAccessToken(), uploadObjectOptionalParams.getRequestIdPrefix(),
-                    uploadObjectOptionalParams.getProgressCallback()).getData();
+                    uploadObjectOptionalParams.getProgressCallback(),
+                    uploadObjectOptionalParams.getXAdsMetaContentType(),
+                    uploadObjectOptionalParams.getXAdsMetaContentDisposition(),
+                    uploadObjectOptionalParams.getXAdsMetaContentEncoding(),
+                    uploadObjectOptionalParams.getXAdsMetaCacheControl()).getData();
         } catch (OssApiException e) {
             throw e;
         } catch (Exception e) {
@@ -1634,9 +1647,9 @@ public class OssClient extends BaseClient {
      *                  an InputStream
      * @throws OssApiException when an API call fails.
      */
-    public InputStream downloadObject(String bucketKey, String objectKey, java.nio.file.Path filePath)
+    public void downloadObject(String bucketKey, String objectKey, java.nio.file.Path filePath)
             throws OssApiException {
-        return downloadObject(bucketKey, objectKey, filePath, null);
+        downloadObject(bucketKey, objectKey, filePath, null);
     }
 
     /**
@@ -1651,7 +1664,7 @@ public class OssClient extends BaseClient {
      *                                     for the downloadObject method.
      * @throws OssApiException when an API call fails.
      */
-    public InputStream downloadObject(String bucketKey, String objectKey, java.nio.file.Path filePath,
+    public void downloadObject(String bucketKey, String objectKey, java.nio.file.Path filePath,
             DownloadObjectOptionalParams downloadObjectOptionalParams) throws OssApiException {
         try {
             if (downloadObjectOptionalParams == null) {
@@ -1662,7 +1675,7 @@ public class OssClient extends BaseClient {
             } else if (downloadObjectOptionalParams.getAccessToken() == null) {
                 downloadObjectOptionalParams.setAccessToken(this.getAuthenticationProvider().getAccessToken());
             }
-            return this.ossFileTransfer.download(bucketKey, objectKey, downloadObjectOptionalParams.getAccessToken(),
+            this.ossFileTransfer.download(bucketKey, objectKey, downloadObjectOptionalParams.getAccessToken(),
                     filePath, downloadObjectOptionalParams.getIsCancelled(),
                     downloadObjectOptionalParams.getRequestIdPrefix(),
                     downloadObjectOptionalParams.getProgressCallback());
@@ -1680,7 +1693,7 @@ public class OssClient extends BaseClient {
      * @throws OssApiException when an API call fails.
      */
     public InputStream downloadObject(String bucketKey, String objectKey) throws OssApiException {
-        return downloadObject(bucketKey, objectKey, null, null);
+        return downloadObject(bucketKey, objectKey, (DownloadObjectOptionalParams) null);
     }
 
     /**
@@ -1695,6 +1708,21 @@ public class OssClient extends BaseClient {
      */
     public InputStream downloadObject(String bucketKey, String objectKey,
             DownloadObjectOptionalParams downloadObjectOptionalParams) throws OssApiException {
-        return downloadObject(bucketKey, objectKey, null, downloadObjectOptionalParams);
+        try {
+            if (downloadObjectOptionalParams == null) {
+                downloadObjectOptionalParams = new DownloadObjectOptionalParams.Builder().build();
+            }
+            if (downloadObjectOptionalParams.getAccessToken() == null && this.getAuthenticationProvider() == null) {
+                throw new OssApiException("Please provide a valid access token!");
+            } else if (downloadObjectOptionalParams.getAccessToken() == null) {
+                downloadObjectOptionalParams.setAccessToken(this.getAuthenticationProvider().getAccessToken());
+            }
+            return this.ossFileTransfer.download(bucketKey, objectKey, downloadObjectOptionalParams.getAccessToken(),
+                    null, downloadObjectOptionalParams.getIsCancelled(),
+                    downloadObjectOptionalParams.getRequestIdPrefix(),
+                    downloadObjectOptionalParams.getProgressCallback());
+        } catch (Exception e) {
+            throw new OssApiException(e);
+        }
     }
 }

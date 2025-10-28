@@ -23,24 +23,25 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.ObjectDetails;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * An array where each element represents an object in the bucket.
  */
 @Schema(description = "An array where each element represents an object in the bucket.")
 @JsonPropertyOrder({
-  BucketObjects.JSON_PROPERTY_ITEMS,
-  BucketObjects.JSON_PROPERTY_NEXT
+    BucketObjects.JSON_PROPERTY_ITEMS,
+    BucketObjects.JSON_PROPERTY_NEXT
 })
 @JsonTypeName("bucket_objects")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -52,9 +53,8 @@ public class BucketObjects {
   public static final String JSON_PROPERTY_NEXT = "next";
   private String next;
 
-
   public BucketObjects items(List<ObjectDetails> items) {
-    
+
     this.items = items;
     return this;
   }
@@ -67,10 +67,11 @@ public class BucketObjects {
     return this;
   }
 
-   /**
+  /**
    * Get items
+   * 
    * @return items
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "")
   @JsonProperty(JSON_PROPERTY_ITEMS)
@@ -80,24 +81,25 @@ public class BucketObjects {
     return items;
   }
 
-
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setItems(List<ObjectDetails> items) {
     this.items = items;
   }
 
-
   public BucketObjects next(String next) {
-    
+
     this.next = next;
     return this;
   }
 
-   /**
-   * The URL to be used to retrieve the next page of results, if available. It will be present only when there are more items to be retrieved after the current set.
+  /**
+   * The URL to be used to retrieve the next page of results, if available. It
+   * will be present only when there are more items to be retrieved after the
+   * current set.
+   * 
    * @return next
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The URL to be used to retrieve the next page of results, if available. It will be present only when there are more items to be retrieved after the current set.")
   @JsonProperty(JSON_PROPERTY_NEXT)
@@ -107,13 +109,11 @@ public class BucketObjects {
     return next;
   }
 
-
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setNext(String next) {
     this.next = next;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -155,4 +155,3 @@ public class BucketObjects {
   }
 
 }
-

@@ -23,25 +23,27 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * The response payload to a Generate Signed S3 Upload URL operation.
  */
 @Schema(description = "The response payload to a Generate Signed S3 Upload URL operation.")
 @JsonPropertyOrder({
-  Signeds3uploadResponse.JSON_PROPERTY_UPLOAD_KEY,
-  Signeds3uploadResponse.JSON_PROPERTY_URLS,
-  Signeds3uploadResponse.JSON_PROPERTY_URL_EXPIRATION,
-  Signeds3uploadResponse.JSON_PROPERTY_UPLOAD_EXPIRATION
+    Signeds3uploadResponse.JSON_PROPERTY_UPLOAD_KEY,
+    Signeds3uploadResponse.JSON_PROPERTY_URLS,
+    Signeds3uploadResponse.JSON_PROPERTY_URL_EXPIRATION,
+    Signeds3uploadResponse.JSON_PROPERTY_UPLOAD_EXPIRATION
 })
 @JsonTypeName("signeds3upload_response")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -59,21 +61,25 @@ public class Signeds3uploadResponse {
   public static final String JSON_PROPERTY_UPLOAD_EXPIRATION = "uploadExpiration";
   private String uploadExpiration;
 
-
   public Signeds3uploadResponse uploadKey(String uploadKey) {
-    
+
     this.uploadKey = uploadKey;
     return this;
   }
 
-   /**
-   * An ID that uniquely identifies the upload session. It allows OSS to differentiate between fresh upload attempts from attempts to resume uploading data for an active upload session, in case of network interruptions. You must provide this value when:
-
-- Re-requesting chunk URLs for an active upload session. 
-- When calling the [Complete Upload to S3 Signed URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/) operation to end an active upload session.
-
+  /**
+   * An ID that uniquely identifies the upload session. It allows OSS to
+   * differentiate between fresh upload attempts from attempts to resume uploading
+   * data for an active upload session, in case of network interruptions. You must
+   * provide this value when:
+   * 
+   * - Re-requesting chunk URLs for an active upload session.
+   * - When calling the [Complete Upload to S3 Signed
+   * URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/)
+   * operation to end an active upload session.
+   * 
    * @return uploadKey
-  **/
+   **/
   @Schema(required = true, description = "An ID that uniquely identifies the upload session. It allows OSS to differentiate between fresh upload attempts from attempts to resume uploading data for an active upload session, in case of network interruptions. You must provide this value when:  - Re-requesting chunk URLs for an active upload session.  - When calling the [Complete Upload to S3 Signed URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/) operation to end an active upload session. ")
   @JsonProperty(JSON_PROPERTY_UPLOAD_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -82,16 +88,14 @@ public class Signeds3uploadResponse {
     return uploadKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_UPLOAD_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUploadKey(String uploadKey) {
     this.uploadKey = uploadKey;
   }
 
-
   public Signeds3uploadResponse urls(List<String> urls) {
-    
+
     this.urls = urls;
     return this;
   }
@@ -101,10 +105,14 @@ public class Signeds3uploadResponse {
     return this;
   }
 
-   /**
-   * An array of signed URLs. For a single-part upload, this will contain only one URL. For a multipart upload, there will be one for each chunk of a multipart upload; the index of the URL in the array corresponds to the part number of the chunk.
+  /**
+   * An array of signed URLs. For a single-part upload, this will contain only one
+   * URL. For a multipart upload, there will be one for each chunk of a multipart
+   * upload; the index of the URL in the array corresponds to the part number of
+   * the chunk.
+   * 
    * @return urls
-  **/
+   **/
   @Schema(required = true, description = "An array of signed URLs. For a single-part upload, this will contain only one URL. For a multipart upload, there will be one for each chunk of a multipart upload; the index of the URL in the array corresponds to the part number of the chunk.")
   @JsonProperty(JSON_PROPERTY_URLS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -113,24 +121,24 @@ public class Signeds3uploadResponse {
     return urls;
   }
 
-
   @JsonProperty(JSON_PROPERTY_URLS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrls(List<String> urls) {
     this.urls = urls;
   }
 
-
   public Signeds3uploadResponse urlExpiration(String urlExpiration) {
-    
+
     this.urlExpiration = urlExpiration;
     return this;
   }
 
-   /**
-   * The date and time, in the ISO 8601 format, indicating when the signed URLs will expire.
+  /**
+   * The date and time, in the ISO 8601 format, indicating when the signed URLs
+   * will expire.
+   * 
    * @return urlExpiration
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The date and time, in the ISO 8601 format, indicating when the signed URLs will expire.")
   @JsonProperty(JSON_PROPERTY_URL_EXPIRATION)
@@ -140,24 +148,26 @@ public class Signeds3uploadResponse {
     return urlExpiration;
   }
 
-
   @JsonProperty(JSON_PROPERTY_URL_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setUrlExpiration(String urlExpiration) {
     this.urlExpiration = urlExpiration;
   }
 
-
   public Signeds3uploadResponse uploadExpiration(String uploadExpiration) {
-    
+
     this.uploadExpiration = uploadExpiration;
     return this;
   }
 
-   /**
-   * The deadline to call [Complete Upload to S3 Signed URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/) for the object. If not completed by this time, all uploaded data for this session will be discarded.
+  /**
+   * The deadline to call [Complete Upload to S3 Signed
+   * URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/)
+   * for the object. If not completed by this time, all uploaded data for this
+   * session will be discarded.
+   * 
    * @return uploadExpiration
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The deadline to call [Complete Upload to S3 Signed URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/) for the object. If not completed by this time, all uploaded data for this session will be discarded.")
   @JsonProperty(JSON_PROPERTY_UPLOAD_EXPIRATION)
@@ -167,13 +177,11 @@ public class Signeds3uploadResponse {
     return uploadExpiration;
   }
 
-
   @JsonProperty(JSON_PROPERTY_UPLOAD_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setUploadExpiration(String uploadExpiration) {
     this.uploadExpiration = uploadExpiration;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -219,4 +227,3 @@ public class Signeds3uploadResponse {
   }
 
 }
-

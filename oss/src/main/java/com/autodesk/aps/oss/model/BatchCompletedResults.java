@@ -23,33 +23,35 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.BatchCompletedResultsParts;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * The results returned by the Complete Batch Upload to S3 Signed URLs operation.
+ * The results returned by the Complete Batch Upload to S3 Signed URLs
+ * operation.
  */
 @Schema(description = "The results returned by the Complete Batch Upload to S3 Signed URLs operation.")
 @JsonPropertyOrder({
-  BatchCompletedResults.JSON_PROPERTY_STATUS,
-  BatchCompletedResults.JSON_PROPERTY_BUCKET_KEY,
-  BatchCompletedResults.JSON_PROPERTY_OBJECT_KEY,
-  BatchCompletedResults.JSON_PROPERTY_OBJECT_ID,
-  BatchCompletedResults.JSON_PROPERTY_SIZE,
-  BatchCompletedResults.JSON_PROPERTY_CONTENT_TYPE,
-  BatchCompletedResults.JSON_PROPERTY_CONTENT_DISPOSITION,
-  BatchCompletedResults.JSON_PROPERTY_CONTENT_ENCODING,
-  BatchCompletedResults.JSON_PROPERTY_CACHE_CONTROL,
-  BatchCompletedResults.JSON_PROPERTY_PARTS,
-  BatchCompletedResults.JSON_PROPERTY_REASON
+    BatchCompletedResults.JSON_PROPERTY_STATUS,
+    BatchCompletedResults.JSON_PROPERTY_BUCKET_KEY,
+    BatchCompletedResults.JSON_PROPERTY_OBJECT_KEY,
+    BatchCompletedResults.JSON_PROPERTY_OBJECT_ID,
+    BatchCompletedResults.JSON_PROPERTY_SIZE,
+    BatchCompletedResults.JSON_PROPERTY_CONTENT_TYPE,
+    BatchCompletedResults.JSON_PROPERTY_CONTENT_DISPOSITION,
+    BatchCompletedResults.JSON_PROPERTY_CONTENT_ENCODING,
+    BatchCompletedResults.JSON_PROPERTY_CACHE_CONTROL,
+    BatchCompletedResults.JSON_PROPERTY_PARTS,
+    BatchCompletedResults.JSON_PROPERTY_REASON
 })
 @JsonTypeName("batch_completed_results")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -88,18 +90,18 @@ public class BatchCompletedResults {
   public static final String JSON_PROPERTY_REASON = "reason";
   private String reason;
 
-
   public BatchCompletedResults status(String status) {
-    
+
     this.status = status;
     return this;
   }
 
-   /**
-   * If this attribute is not returned, completion has succeeded. If the value of this attribute is &quot;error&quot;, completion failed.&#39;
-
+  /**
+   * If this attribute is not returned, completion has succeeded. If the value of
+   * this attribute is &quot;error&quot;, completion failed.&#39;
+   * 
    * @return status
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "If this attribute is not returned, completion has succeeded. If the value of this attribute is \"error\", completion failed.' ")
   @JsonProperty(JSON_PROPERTY_STATUS)
@@ -109,24 +111,23 @@ public class BatchCompletedResults {
     return status;
   }
 
-
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setStatus(String status) {
     this.status = status;
   }
 
-
   public BatchCompletedResults bucketKey(String bucketKey) {
-    
+
     this.bucketKey = bucketKey;
     return this;
   }
 
-   /**
+  /**
    * The bucket key of the bucket the object was uploaded to.
+   * 
    * @return bucketKey
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The bucket key of the bucket the object was uploaded to.")
   @JsonProperty(JSON_PROPERTY_BUCKET_KEY)
@@ -136,24 +137,23 @@ public class BatchCompletedResults {
     return bucketKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setBucketKey(String bucketKey) {
     this.bucketKey = bucketKey;
   }
 
-
   public BatchCompletedResults objectKey(String objectKey) {
-    
+
     this.objectKey = objectKey;
     return this;
   }
 
-   /**
+  /**
    * The URL-encoded human friendly name of the object.
+   * 
    * @return objectKey
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The URL-encoded human friendly name of the object.")
   @JsonProperty(JSON_PROPERTY_OBJECT_KEY)
@@ -163,24 +163,23 @@ public class BatchCompletedResults {
     return objectKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_OBJECT_KEY)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setObjectKey(String objectKey) {
     this.objectKey = objectKey;
   }
 
-
   public BatchCompletedResults objectId(String objectId) {
-    
+
     this.objectId = objectId;
     return this;
   }
 
-   /**
+  /**
    * An identifier (URN) that uniquely and persistently identifies the object.
+   * 
    * @return objectId
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "An identifier (URN) that uniquely and persistently identifies the object.")
   @JsonProperty(JSON_PROPERTY_OBJECT_ID)
@@ -190,24 +189,23 @@ public class BatchCompletedResults {
     return objectId;
   }
 
-
   @JsonProperty(JSON_PROPERTY_OBJECT_ID)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setObjectId(String objectId) {
     this.objectId = objectId;
   }
 
-
   public BatchCompletedResults size(Long size) {
-    
+
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * The total amount of storage space occupied by the object, in bytes.
+   * 
    * @return size
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The total amount of storage space occupied by the object, in bytes.")
   @JsonProperty(JSON_PROPERTY_SIZE)
@@ -217,24 +215,25 @@ public class BatchCompletedResults {
     return size;
   }
 
-
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setSize(Long size) {
     this.size = size;
   }
 
-
   public BatchCompletedResults contentType(String contentType) {
-    
+
     this.contentType = contentType;
     return this;
   }
 
-   /**
-   * The format of the data stored within the object, expressed as a MIME type. This attribute is returned only if it was specified when the object was uploaded.
+  /**
+   * The format of the data stored within the object, expressed as a MIME type.
+   * This attribute is returned only if it was specified when the object was
+   * uploaded.
+   * 
    * @return contentType
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The format of the data stored within the object, expressed as a MIME type. This attribute is returned only if it was specified when the object was uploaded.")
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
@@ -244,24 +243,25 @@ public class BatchCompletedResults {
     return contentType;
   }
 
-
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setContentType(String contentType) {
     this.contentType = contentType;
   }
 
-
   public BatchCompletedResults contentDisposition(String contentDisposition) {
-    
+
     this.contentDisposition = contentDisposition;
     return this;
   }
 
-   /**
-   * The Content-Disposition value for the uploaded object as recorded within OSS. This attribute is returned only if it was specified when the object was uploaded.
+  /**
+   * The Content-Disposition value for the uploaded object as recorded within OSS.
+   * This attribute is returned only if it was specified when the object was
+   * uploaded.
+   * 
    * @return contentDisposition
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The Content-Disposition value for the uploaded object as recorded within OSS. This attribute is returned only if it was specified when the object was uploaded.")
   @JsonProperty(JSON_PROPERTY_CONTENT_DISPOSITION)
@@ -271,24 +271,25 @@ public class BatchCompletedResults {
     return contentDisposition;
   }
 
-
   @JsonProperty(JSON_PROPERTY_CONTENT_DISPOSITION)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setContentDisposition(String contentDisposition) {
     this.contentDisposition = contentDisposition;
   }
 
-
   public BatchCompletedResults contentEncoding(String contentEncoding) {
-    
+
     this.contentEncoding = contentEncoding;
     return this;
   }
 
-   /**
-   * The Content-Encoding value for the uploaded object as recorded within OSS. This attribute is returned only if it was specified when the object was uploaded.
+  /**
+   * The Content-Encoding value for the uploaded object as recorded within OSS.
+   * This attribute is returned only if it was specified when the object was
+   * uploaded.
+   * 
    * @return contentEncoding
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The Content-Encoding value for the uploaded object as recorded within OSS. This attribute is returned only if it was specified when the object was uploaded.")
   @JsonProperty(JSON_PROPERTY_CONTENT_ENCODING)
@@ -298,24 +299,24 @@ public class BatchCompletedResults {
     return contentEncoding;
   }
 
-
   @JsonProperty(JSON_PROPERTY_CONTENT_ENCODING)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setContentEncoding(String contentEncoding) {
     this.contentEncoding = contentEncoding;
   }
 
-
   public BatchCompletedResults cacheControl(String cacheControl) {
-    
+
     this.cacheControl = cacheControl;
     return this;
   }
 
-   /**
-   * The Cache-Control value for the uploaded object as recorded within OSS. This attribute is returned only if it was specified when the object was uploaded.
+  /**
+   * The Cache-Control value for the uploaded object as recorded within OSS. This
+   * attribute is returned only if it was specified when the object was uploaded.
+   * 
    * @return cacheControl
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The Cache-Control value for the uploaded object as recorded within OSS. This attribute is returned only if it was specified when the object was uploaded.")
   @JsonProperty(JSON_PROPERTY_CACHE_CONTROL)
@@ -325,16 +326,14 @@ public class BatchCompletedResults {
     return cacheControl;
   }
 
-
   @JsonProperty(JSON_PROPERTY_CACHE_CONTROL)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setCacheControl(String cacheControl) {
     this.cacheControl = cacheControl;
   }
 
-
   public BatchCompletedResults parts(List<BatchCompletedResultsParts> parts) {
-    
+
     this.parts = parts;
     return this;
   }
@@ -347,10 +346,12 @@ public class BatchCompletedResults {
     return this;
   }
 
-   /**
-   * An array containing the status of each part, indicating any issues with eTag or size mismatch issues.
+  /**
+   * An array containing the status of each part, indicating any issues with eTag
+   * or size mismatch issues.
+   * 
    * @return parts
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "An array containing the status of each part, indicating any issues with eTag or size mismatch issues.")
   @JsonProperty(JSON_PROPERTY_PARTS)
@@ -360,24 +361,23 @@ public class BatchCompletedResults {
     return parts;
   }
 
-
   @JsonProperty(JSON_PROPERTY_PARTS)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setParts(List<BatchCompletedResultsParts> parts) {
     this.parts = parts;
   }
 
-
   public BatchCompletedResults reason(String reason) {
-    
+
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * The reason for the failure, if the status is &#x60;&#x60;error&#x60;&#x60;.
+   * 
    * @return reason
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The reason for the failure, if the status is ``error``.")
   @JsonProperty(JSON_PROPERTY_REASON)
@@ -387,13 +387,11 @@ public class BatchCompletedResults {
     return reason;
   }
 
-
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setReason(String reason) {
     this.reason = reason;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -419,7 +417,8 @@ public class BatchCompletedResults {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, bucketKey, objectKey, objectId, size, contentType, contentDisposition, contentEncoding, cacheControl, parts, reason);
+    return Objects.hash(status, bucketKey, objectKey, objectId, size, contentType, contentDisposition, contentEncoding,
+        cacheControl, parts, reason);
   }
 
   @Override
@@ -453,4 +452,3 @@ public class BatchCompletedResults {
   }
 
 }
-

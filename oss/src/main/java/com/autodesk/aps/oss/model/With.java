@@ -23,26 +23,26 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * **Not applicable for Head operation** The optional information you can request for. To request more than one of the following, specify this parameter multiple times in the request.  Possible values:   - &#x60;&#x60;createdDate&#x60;&#x60;  - &#x60;&#x60;lastAccessedDate&#x60;&#x60;  - &#x60;&#x60;lastModifiedDate&#x60;&#x60;  - &#x60;&#x60;userDefinedMetadata&#x60;&#x60; 
+ * **Not applicable for Head operation** The optional information you can
+ * request for. To request more than one of the following, specify this
+ * parameter multiple times in the request. Possible values: -
+ * &#x60;&#x60;createdDate&#x60;&#x60; -
+ * &#x60;&#x60;lastAccessedDate&#x60;&#x60; -
+ * &#x60;&#x60;lastModifiedDate&#x60;&#x60; -
+ * &#x60;&#x60;userDefinedMetadata&#x60;&#x60;
  */
 public enum With {
-  
+
   CREATEDDATE("createdDate"),
-  
+
   LASTACCESSEDDATE("lastAccessedDate"),
-  
+
   LASTMODIFIEDDATE("lastModifiedDate"),
-  
+
   USERDEFINEDMETADATA("userDefinedMetadata");
 
   private String value;
@@ -71,4 +71,3 @@ public enum With {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

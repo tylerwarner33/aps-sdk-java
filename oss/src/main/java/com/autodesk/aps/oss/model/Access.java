@@ -23,24 +23,19 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Access for signed resource Possible values: read, write, readwrite Default value: read
+ * Access for signed resource Possible values: read, write, readwrite Default
+ * value: read
  */
 public enum Access {
-  
+
   READ("Read"),
-  
+
   WRITE("Write"),
-  
+
   READWRITE("ReadWrite");
 
   private String value;
@@ -69,4 +64,3 @@ public enum Access {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

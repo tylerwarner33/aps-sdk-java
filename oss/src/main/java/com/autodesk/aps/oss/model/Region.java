@@ -23,34 +23,38 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Specifies where the bucket containing the object is stored. Possible values are:  - &#x60;&#x60;US&#x60;&#x60; : (Default) Data center for the US region. - &#x60;&#x60;EMEA&#x60;&#x60; : Data center for the European Union, Middle East, and Africa. - &#x60;&#x60;AUS&#x60;&#x60; : (Beta) Data center for Australia. - &#x60;&#x60;CAN&#x60;&#x60; : Data center for the Canada region. - &#x60;&#x60;DEU&#x60;&#x60; : Data center for the Germany region. - &#x60;&#x60;IND&#x60;&#x60; : Data center for the India region. - &#x60;&#x60;JPN&#x60;&#x60; : Data center for the Japan region. - &#x60;&#x60;GBR&#x60;&#x60; : Data center for the United Kingdom region.  **Note:** Beta features are subject to change. Please do not use in production environments.     
+ * Specifies where the bucket containing the object is stored. Possible values
+ * are: - &#x60;&#x60;US&#x60;&#x60; : (Default) Data center for the US region.
+ * - &#x60;&#x60;EMEA&#x60;&#x60; : Data center for the European Union, Middle
+ * East, and Africa. - &#x60;&#x60;AUS&#x60;&#x60; : (Beta) Data center for
+ * Australia. - &#x60;&#x60;CAN&#x60;&#x60; : Data center for the Canada region.
+ * - &#x60;&#x60;DEU&#x60;&#x60; : Data center for the Germany region. -
+ * &#x60;&#x60;IND&#x60;&#x60; : Data center for the India region. -
+ * &#x60;&#x60;JPN&#x60;&#x60; : Data center for the Japan region. -
+ * &#x60;&#x60;GBR&#x60;&#x60; : Data center for the United Kingdom region.
+ * **Note:** Beta features are subject to change. Please do not use in
+ * production environments.
  */
 public enum Region {
-  
+
   US("US"),
-  
+
   EMEA("EMEA"),
-  
+
   AUS("AUS"),
-  
+
   CAN("CAN"),
-  
+
   DEU("DEU"),
-  
+
   IND("IND"),
-  
+
   JPN("JPN"),
-  
+
   GBR("GBR");
 
   private String value;
@@ -79,4 +83,3 @@ public enum Region {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

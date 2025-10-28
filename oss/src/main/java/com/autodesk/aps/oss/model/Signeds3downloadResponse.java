@@ -24,24 +24,27 @@
 package com.autodesk.aps.oss.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.DownloadStatus;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * An object representing the response payload on successful execution of a Generate Signed S3 Download URL operation.
+ * An object representing the response payload on successful execution of a
+ * Generate Signed S3 Download URL operation.
  */
 @Schema(description = "An object representing the response payload on successful execution of a Generate Signed S3 Download URL operation.")
 @JsonPropertyOrder({
-  Signeds3downloadResponse.JSON_PROPERTY_STATUS,
-  Signeds3downloadResponse.JSON_PROPERTY_URL,
-  Signeds3downloadResponse.JSON_PROPERTY_URLS,
-  Signeds3downloadResponse.JSON_PROPERTY_PARAMS,
-  Signeds3downloadResponse.JSON_PROPERTY_SIZE,
-  Signeds3downloadResponse.JSON_PROPERTY_SHA1
+    Signeds3downloadResponse.JSON_PROPERTY_STATUS,
+    Signeds3downloadResponse.JSON_PROPERTY_URL,
+    Signeds3downloadResponse.JSON_PROPERTY_URLS,
+    Signeds3downloadResponse.JSON_PROPERTY_PARAMS,
+    Signeds3downloadResponse.JSON_PROPERTY_SIZE,
+    Signeds3downloadResponse.JSON_PROPERTY_SHA1
 })
 @JsonTypeName("signeds3download_response")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -65,17 +68,17 @@ public class Signeds3downloadResponse {
   public static final String JSON_PROPERTY_SHA1 = "sha1";
   private String sha1;
 
-
   public Signeds3downloadResponse status(DownloadStatus status) {
-    
+
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
+   * 
    * @return status
-  **/
+   **/
   @Schema(required = true, description = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -84,24 +87,26 @@ public class Signeds3downloadResponse {
     return status;
   }
 
-
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(DownloadStatus status) {
     this.status = status;
   }
 
-
   public Signeds3downloadResponse url(String url) {
-    
+
     this.url = url;
     return this;
   }
 
-   /**
-   * A S3 signed URL with which to download the object. This attribute is returned when &#x60;&#x60;status&#x60;&#x60; is &#x60;&#x60;complete&#x60;&#x60; or &#x60;&#x60;fallback&#x60;&#x60;; in the latter case, this will return an OSS signed URL, not an S3 signed URL.
+  /**
+   * A S3 signed URL with which to download the object. This attribute is returned
+   * when &#x60;&#x60;status&#x60;&#x60; is &#x60;&#x60;complete&#x60;&#x60; or
+   * &#x60;&#x60;fallback&#x60;&#x60;; in the latter case, this will return an OSS
+   * signed URL, not an S3 signed URL.
+   * 
    * @return url
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "A S3 signed URL with which to download the object. This attribute is returned when ``status`` is ``complete`` or ``fallback``; in the latter case, this will return an OSS signed URL, not an S3 signed URL.")
   @JsonProperty(JSON_PROPERTY_URL)
@@ -111,24 +116,26 @@ public class Signeds3downloadResponse {
     return url;
   }
 
-
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setUrl(String url) {
     this.url = url;
   }
 
-
   public Signeds3downloadResponse urls(Object urls) {
-    
+
     this.urls = urls;
     return this;
   }
 
-   /**
-   * A map of S3 signed URLs, one for each chunk of an unmerged resumable upload. This attribute is returned when &#x60;&#x60;status&#x60;&#x60; is &#x60;&#x60;chunked&#x60;&#x60;. The key of each entry is the byte range of the total file which the chunk comprises.
+  /**
+   * A map of S3 signed URLs, one for each chunk of an unmerged resumable upload.
+   * This attribute is returned when &#x60;&#x60;status&#x60;&#x60; is
+   * &#x60;&#x60;chunked&#x60;&#x60;. The key of each entry is the byte range of
+   * the total file which the chunk comprises.
+   * 
    * @return urls
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "A map of S3 signed URLs, one for each chunk of an unmerged resumable upload. This attribute is returned when ``status`` is ``chunked``. The key of each entry is the byte range of the total file which the chunk comprises.")
   @JsonProperty(JSON_PROPERTY_URLS)
@@ -138,29 +145,28 @@ public class Signeds3downloadResponse {
     return urls;
   }
 
-
   @JsonProperty(JSON_PROPERTY_URLS)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setUrls(Object urls) {
     this.urls = urls;
   }
 
-
   public Signeds3downloadResponse params(Object params) {
-    
+
     this.params = params;
     return this;
   }
 
-   /**
-   * The values that were requested for the following parameters when requesting the S3 signed URL.
-
-- &#x60;&#x60;Content-Type&#x60;&#x60;
-- &#x60;&#x60;Content-Disposition&#x60;&#x60;
-- &#x60;&#x60;Cache-Control&#x60;&#x60;.
-
+  /**
+   * The values that were requested for the following parameters when requesting
+   * the S3 signed URL.
+   * 
+   * - &#x60;&#x60;Content-Type&#x60;&#x60;
+   * - &#x60;&#x60;Content-Disposition&#x60;&#x60;
+   * - &#x60;&#x60;Cache-Control&#x60;&#x60;.
+   * 
    * @return params
-  **/
+   **/
   @Schema(required = true, description = "The values that were requested for the following parameters when requesting the S3 signed URL.  - ``Content-Type`` - ``Content-Disposition`` - ``Cache-Control``. ")
   @JsonProperty(JSON_PROPERTY_PARAMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -169,24 +175,23 @@ public class Signeds3downloadResponse {
     return params;
   }
 
-
   @JsonProperty(JSON_PROPERTY_PARAMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setParams(Object params) {
     this.params = params;
   }
 
-
   public Signeds3downloadResponse size(Long size) {
-    
+
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * The total amount of storage space occupied by the object, in bytes.
+   * 
    * @return size
-  **/
+   **/
   @Schema(required = true, description = "The total amount of storage space occupied by the object, in bytes.")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -195,24 +200,23 @@ public class Signeds3downloadResponse {
     return size;
   }
 
-
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSize(Long size) {
     this.size = size;
   }
 
-
   public Signeds3downloadResponse sha1(String sha1) {
-    
+
     this.sha1 = sha1;
     return this;
   }
 
-   /**
+  /**
    * A hash value computed from the data of the object, if available.
+   * 
    * @return sha1
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "A hash value computed from the data of the object, if available.")
   @JsonProperty(JSON_PROPERTY_SHA1)
@@ -222,13 +226,11 @@ public class Signeds3downloadResponse {
     return sha1;
   }
 
-
   @JsonProperty(JSON_PROPERTY_SHA1)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setSha1(String sha1) {
     this.sha1 = sha1;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -278,4 +280,3 @@ public class Signeds3downloadResponse {
   }
 
 }
-
