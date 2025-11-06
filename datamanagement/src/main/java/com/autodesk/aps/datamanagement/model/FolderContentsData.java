@@ -21,11 +21,22 @@
  * limitations under the License.
  */
 
-package com.autodesk.aps.datamanagement.model;
+ package com.autodesk.aps.datamanagement.model;
 
-import com.autodesk.aps.datamanagement.utils.FolderContentsDataDeserializer;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-@JsonDeserialize(using = FolderContentsDataDeserializer.class)
-public interface FolderContentsData {
-}
+ import com.fasterxml.jackson.annotation.JsonSubTypes;
+ import com.fasterxml.jackson.annotation.JsonTypeInfo;
+ import com.fasterxml.jackson.annotation.JsonTypeName;
+ 
+ 
+ @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
+ @JsonSubTypes({
+   @JsonSubTypes.Type(value = FolderData.class, name = "folders"),
+   @JsonSubTypes.Type(value = ItemData.class, name = "items"),
+ })
+ @JsonTypeName("FolderContents_data")
+ 
+ public interface FolderContentsData  {
+     public String getType();
+ }
+ 
+ 
