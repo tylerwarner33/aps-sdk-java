@@ -24,18 +24,22 @@
 package com.autodesk.aps.oss.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * A response returned by an Upload Object Using Signed URL operation when processing is yet to be completed.
+ * A response returned by an Upload Object Using Signed URL operation when
+ * processing is yet to be completed.
  */
 @Schema(description = "A response returned by an Upload Object Using Signed URL operation when processing is yet to be completed.")
 @JsonPropertyOrder({
-  Result.JSON_PROPERTY_RESULT
+    Result.JSON_PROPERTY_RESULT
 })
 @JsonTypeName("result")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -44,17 +48,17 @@ public class Result {
   public static final String JSON_PROPERTY_RESULT = "result";
   private String result;
 
-
   public Result result(String result) {
-    
+
     this.result = result;
     return this;
   }
 
-   /**
+  /**
    * A human friendly description of the state of processing.
+   * 
    * @return result
-  **/
+   **/
   @Schema(required = true, description = "A human friendly description of the state of processing.")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -63,13 +67,11 @@ public class Result {
     return result;
   }
 
-
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResult(String result) {
     this.result = result;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -109,4 +111,3 @@ public class Result {
   }
 
 }
-

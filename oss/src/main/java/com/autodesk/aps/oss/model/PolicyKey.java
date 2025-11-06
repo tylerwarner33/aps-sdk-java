@@ -23,24 +23,22 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Specifies the retention policy for the objects stored in the bucket. Possible values are:               - &#x60;&#x60;transient&#x60;&#x60; - Objects are retained for 24 hours. - &#x60;&#x60;temporary&#x60;&#x60; - Objects are retained for 30 days. - &#x60;&#x60;persistent&#x60;&#x60; - Objects are retained until they are deleted.
+ * Specifies the retention policy for the objects stored in the bucket. Possible
+ * values are: - &#x60;&#x60;transient&#x60;&#x60; - Objects are retained for 24
+ * hours. - &#x60;&#x60;temporary&#x60;&#x60; - Objects are retained for 30
+ * days. - &#x60;&#x60;persistent&#x60;&#x60; - Objects are retained until they
+ * are deleted.
  */
 public enum PolicyKey {
-  
+
   TRANSIENT("transient"),
-  
+
   TEMPORARY("temporary"),
-  
+
   PERSISTENT("persistent");
 
   private String value;
@@ -69,4 +67,3 @@ public enum PolicyKey {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

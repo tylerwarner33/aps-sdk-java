@@ -23,28 +23,28 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.Permission;
-import com.autodesk.aps.oss.model.PolicyKey;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * An object representing a bucket.
  */
 @Schema(description = "An object representing a bucket.")
 @JsonPropertyOrder({
-  Bucket.JSON_PROPERTY_BUCKET_KEY,
-  Bucket.JSON_PROPERTY_BUCKET_OWNER,
-  Bucket.JSON_PROPERTY_CREATED_DATE,
-  Bucket.JSON_PROPERTY_PERMISSIONS,
-  Bucket.JSON_PROPERTY_POLICY_KEY
+    Bucket.JSON_PROPERTY_BUCKET_KEY,
+    Bucket.JSON_PROPERTY_BUCKET_OWNER,
+    Bucket.JSON_PROPERTY_CREATED_DATE,
+    Bucket.JSON_PROPERTY_PERMISSIONS,
+    Bucket.JSON_PROPERTY_POLICY_KEY
 })
 @JsonTypeName("bucket")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -65,17 +65,17 @@ public class Bucket {
   public static final String JSON_PROPERTY_POLICY_KEY = "policyKey";
   private PolicyKey policyKey = PolicyKey.TRANSIENT;
 
-
   public Bucket bucketKey(String bucketKey) {
-    
+
     this.bucketKey = bucketKey;
     return this;
   }
 
-   /**
+  /**
    * Bucket key: An ID that uniquely identifies the bucket.
+   * 
    * @return bucketKey
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "Bucket key: An ID that uniquely identifies the bucket.")
   @JsonProperty(JSON_PROPERTY_BUCKET_KEY)
@@ -85,24 +85,23 @@ public class Bucket {
     return bucketKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setBucketKey(String bucketKey) {
     this.bucketKey = bucketKey;
   }
 
-
   public Bucket bucketOwner(String bucketOwner) {
-    
+
     this.bucketOwner = bucketOwner;
     return this;
   }
 
-   /**
+  /**
    * The Client ID of the application that owns the bucket.
+   * 
    * @return bucketOwner
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The Client ID of the application that owns the bucket.")
   @JsonProperty(JSON_PROPERTY_BUCKET_OWNER)
@@ -112,24 +111,23 @@ public class Bucket {
     return bucketOwner;
   }
 
-
   @JsonProperty(JSON_PROPERTY_BUCKET_OWNER)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setBucketOwner(String bucketOwner) {
     this.bucketOwner = bucketOwner;
   }
 
-
   public Bucket createdDate(Long createdDate) {
-    
+
     this.createdDate = createdDate;
     return this;
   }
 
-   /**
+  /**
    * The time the bucket was created, represented as a Unix timestamp.
+   * 
    * @return createdDate
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The time the bucket was created, represented as a Unix timestamp.")
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
@@ -139,16 +137,14 @@ public class Bucket {
     return createdDate;
   }
 
-
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setCreatedDate(Long createdDate) {
     this.createdDate = createdDate;
   }
 
-
   public Bucket permissions(List<Permission> permissions) {
-    
+
     this.permissions = permissions;
     return this;
   }
@@ -161,10 +157,12 @@ public class Bucket {
     return this;
   }
 
-   /**
-   * An array of objects, where each object represents an application that can access the bucket.
+  /**
+   * An array of objects, where each object represents an application that can
+   * access the bucket.
+   * 
    * @return permissions
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "An array of objects, where each object represents an application that can access the bucket.")
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
@@ -174,24 +172,23 @@ public class Bucket {
     return permissions;
   }
 
-
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setPermissions(List<Permission> permissions) {
     this.permissions = permissions;
   }
 
-
   public Bucket policyKey(PolicyKey policyKey) {
-    
+
     this.policyKey = policyKey;
     return this;
   }
 
-   /**
+  /**
    * Get policyKey
+   * 
    * @return policyKey
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "")
   @JsonProperty(JSON_PROPERTY_POLICY_KEY)
@@ -201,13 +198,11 @@ public class Bucket {
     return policyKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_POLICY_KEY)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setPolicyKey(PolicyKey policyKey) {
     this.policyKey = policyKey;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -255,4 +250,3 @@ public class Bucket {
   }
 
 }
-

@@ -23,24 +23,26 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * The request payload for a Generate OSS Signed URL operation.
  */
 @Schema(description = "The request payload for a Generate OSS Signed URL operation.")
 @JsonPropertyOrder({
-  CreateObjectSigned.JSON_PROPERTY_SIGNED_URL,
-  CreateObjectSigned.JSON_PROPERTY_EXPIRATION,
-  CreateObjectSigned.JSON_PROPERTY_ALLOWED_IP_ADDRESSES
+    CreateObjectSigned.JSON_PROPERTY_SIGNED_URL,
+    CreateObjectSigned.JSON_PROPERTY_EXPIRATION,
+    CreateObjectSigned.JSON_PROPERTY_ALLOWED_IP_ADDRESSES
 })
 @JsonTypeName("create_object_signed")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -55,17 +57,17 @@ public class CreateObjectSigned {
   public static final String JSON_PROPERTY_ALLOWED_IP_ADDRESSES = "allowedIpAddresses";
   private List<String> allowedIpAddresses = null;
 
-
   public CreateObjectSigned signedUrl(String signedUrl) {
-    
+
     this.signedUrl = signedUrl;
     return this;
   }
 
-   /**
+  /**
    * URL created for downloading the object
+   * 
    * @return signedUrl
-  **/
+   **/
   @Schema(required = true, description = "URL created for downloading the object")
   @JsonProperty(JSON_PROPERTY_SIGNED_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -74,24 +76,23 @@ public class CreateObjectSigned {
     return signedUrl;
   }
 
-
   @JsonProperty(JSON_PROPERTY_SIGNED_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSignedUrl(String signedUrl) {
     this.signedUrl = signedUrl;
   }
 
-
   public CreateObjectSigned expiration(Long expiration) {
-    
+
     this.expiration = expiration;
     return this;
   }
 
-   /**
+  /**
    * Value for expiration in minutes
+   * 
    * @return expiration
-  **/
+   **/
   @Schema(required = true, description = "Value for expiration in minutes")
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,16 +101,14 @@ public class CreateObjectSigned {
     return expiration;
   }
 
-
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpiration(Long expiration) {
     this.expiration = expiration;
   }
 
-
   public CreateObjectSigned allowedIpAddresses(List<String> allowedIpAddresses) {
-    
+
     this.allowedIpAddresses = allowedIpAddresses;
     return this;
   }
@@ -122,10 +121,11 @@ public class CreateObjectSigned {
     return this;
   }
 
-   /**
+  /**
    * IP addresses that can make a request to this URL.
+   * 
    * @return allowedIpAddresses
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "IP addresses that can make a request to this URL.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
@@ -135,13 +135,11 @@ public class CreateObjectSigned {
     return allowedIpAddresses;
   }
 
-
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setAllowedIpAddresses(List<String> allowedIpAddresses) {
     this.allowedIpAddresses = allowedIpAddresses;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -185,4 +183,3 @@ public class CreateObjectSigned {
   }
 
 }
-

@@ -23,22 +23,20 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Specifies the level of permission the application has. Required when &#x60;&#x60;allow&#x60;&#x60; is specified. Possible values are:   - &#x60;&#x60;full&#x60;&#x60; - Unrestricted access to objects within the bucket. - &#x60;&#x60;read_only&#x60;&#x60; - Read only access to the objects within the bucket. Modification or deletion of objects is not allowed.
+ * Specifies the level of permission the application has. Required when
+ * &#x60;&#x60;allow&#x60;&#x60; is specified. Possible values are: -
+ * &#x60;&#x60;full&#x60;&#x60; - Unrestricted access to objects within the
+ * bucket. - &#x60;&#x60;read_only&#x60;&#x60; - Read only access to the objects
+ * within the bucket. Modification or deletion of objects is not allowed.
  */
 public enum AllowAccess {
-  
+
   FULL("full"),
-  
+
   READ("read");
 
   private String value;
@@ -67,4 +65,3 @@ public enum AllowAccess {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

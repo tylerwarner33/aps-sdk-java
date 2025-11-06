@@ -23,23 +23,24 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.Batchsigneds3downloadObjectRequests;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * The response to a Batch Generate Signed S3 Download URLs operation.
  */
 @Schema(description = "The response to a Batch Generate Signed S3 Download URLs operation.")
 @JsonPropertyOrder({
-  Batchsigneds3downloadObject.JSON_PROPERTY_REQUESTS
+    Batchsigneds3downloadObject.JSON_PROPERTY_REQUESTS
 })
 @JsonTypeName("batchsigneds3download_object")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -48,9 +49,8 @@ public class Batchsigneds3downloadObject {
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<Batchsigneds3downloadObjectRequests> requests = new ArrayList<>();
 
-
   public Batchsigneds3downloadObject requests(List<Batchsigneds3downloadObjectRequests> requests) {
-    
+
     this.requests = requests;
     return this;
   }
@@ -60,10 +60,12 @@ public class Batchsigneds3downloadObject {
     return this;
   }
 
-   /**
-   * An array where each element is an object containing information needed to generate a signed S3 download URL.
+  /**
+   * An array where each element is an object containing information needed to
+   * generate a signed S3 download URL.
+   * 
    * @return requests
-  **/
+   **/
   @Schema(required = true, description = "An array where each element is an object containing information needed to generate a signed S3 download URL.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -72,13 +74,11 @@ public class Batchsigneds3downloadObject {
     return requests;
   }
 
-
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequests(List<Batchsigneds3downloadObjectRequests> requests) {
     this.requests = requests;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -118,4 +118,3 @@ public class Batchsigneds3downloadObject {
   }
 
 }
-

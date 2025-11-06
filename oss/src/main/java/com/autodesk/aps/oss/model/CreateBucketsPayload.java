@@ -23,26 +23,26 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.CreateBucketsPayloadAllow;
-import com.autodesk.aps.oss.model.PolicyKey;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * The request payload for the Create Bucket operation.
  */
 @Schema(description = "The request payload for the Create Bucket operation.")
 @JsonPropertyOrder({
-  CreateBucketsPayload.JSON_PROPERTY_BUCKET_KEY,
-  CreateBucketsPayload.JSON_PROPERTY_ALLOW,
-  CreateBucketsPayload.JSON_PROPERTY_POLICY_KEY
+    CreateBucketsPayload.JSON_PROPERTY_BUCKET_KEY,
+    CreateBucketsPayload.JSON_PROPERTY_ALLOW,
+    CreateBucketsPayload.JSON_PROPERTY_POLICY_KEY
 })
 @JsonTypeName("create_buckets_payload")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -57,20 +57,21 @@ public class CreateBucketsPayload {
   public static final String JSON_PROPERTY_POLICY_KEY = "policyKey";
   private PolicyKey policyKey = PolicyKey.TRANSIENT;
 
-
   public CreateBucketsPayload bucketKey(String bucketKey) {
-    
+
     this.bucketKey = bucketKey;
     return this;
   }
 
-   /**
-   * Bucket key: A unique name you assign to a bucket. Bucket keys must be globally unique across all applications and regions. They must consist of only lower case characters, numbers 0-9, and underscores (_).
-
-**Note:** You cannot change a bucket key once the bucket is created.
-
+  /**
+   * Bucket key: A unique name you assign to a bucket. Bucket keys must be
+   * globally unique across all applications and regions. They must consist of
+   * only lower case characters, numbers 0-9, and underscores (_).
+   ** 
+   * Note:** You cannot change a bucket key once the bucket is created.
+   * 
    * @return bucketKey
-  **/
+   **/
   @Schema(required = true, description = "Bucket key: A unique name you assign to a bucket. Bucket keys must be globally unique across all applications and regions. They must consist of only lower case characters, numbers 0-9, and underscores (_).  **Note:** You cannot change a bucket key once the bucket is created. ")
   @JsonProperty(JSON_PROPERTY_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -79,16 +80,14 @@ public class CreateBucketsPayload {
     return bucketKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBucketKey(String bucketKey) {
     this.bucketKey = bucketKey;
   }
 
-
   public CreateBucketsPayload allow(List<CreateBucketsPayloadAllow> allow) {
-    
+
     this.allow = allow;
     return this;
   }
@@ -101,10 +100,12 @@ public class CreateBucketsPayload {
     return this;
   }
 
-   /**
-   * An array of objects, where each object represents an application that can access the bucket.
+  /**
+   * An array of objects, where each object represents an application that can
+   * access the bucket.
+   * 
    * @return allow
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "An array of objects, where each object represents an application that can access the bucket.")
   @JsonProperty(JSON_PROPERTY_ALLOW)
@@ -114,24 +115,23 @@ public class CreateBucketsPayload {
     return allow;
   }
 
-
   @JsonProperty(JSON_PROPERTY_ALLOW)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setAllow(List<CreateBucketsPayloadAllow> allow) {
     this.allow = allow;
   }
 
-
   public CreateBucketsPayload policyKey(PolicyKey policyKey) {
-    
+
     this.policyKey = policyKey;
     return this;
   }
 
-   /**
+  /**
    * Get policyKey
+   * 
    * @return policyKey
-  **/
+   **/
   @Schema(required = true, description = "")
   @JsonProperty(JSON_PROPERTY_POLICY_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -140,13 +140,11 @@ public class CreateBucketsPayload {
     return policyKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_POLICY_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPolicyKey(PolicyKey policyKey) {
     this.policyKey = policyKey;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -190,4 +188,3 @@ public class CreateBucketsPayload {
   }
 
 }
-

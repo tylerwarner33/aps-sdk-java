@@ -24,18 +24,21 @@
 package com.autodesk.aps.oss.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * An object returned with an error describing the reason for failure.
  */
 @Schema(description = "An object returned with an error describing the reason for failure.")
 @JsonPropertyOrder({
-  Reason.JSON_PROPERTY_REASON
+    Reason.JSON_PROPERTY_REASON
 })
 @JsonTypeName("reason")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -44,17 +47,17 @@ public class Reason {
   public static final String JSON_PROPERTY_REASON = "reason";
   private String reason;
 
-
   public Reason reason(String reason) {
-    
+
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * reason for failure
+   * 
    * @return reason
-  **/
+   **/
   @Schema(required = true, description = "reason for failure")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -63,13 +66,11 @@ public class Reason {
     return reason;
   }
 
-
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReason(String reason) {
     this.reason = reason;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -109,4 +110,3 @@ public class Reason {
   }
 
 }
-

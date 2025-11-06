@@ -24,22 +24,25 @@
 package com.autodesk.aps.oss.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * Batchsigneds3downloadObjectRequests
  */
 @JsonPropertyOrder({
-  Batchsigneds3downloadObjectRequests.JSON_PROPERTY_OBJECT_KEY,
-  Batchsigneds3downloadObjectRequests.JSON_PROPERTY_RESPONSE_CONTENT_TYPE,
-  Batchsigneds3downloadObjectRequests.JSON_PROPERTY_RESPONSE_CONTENT_DISPOSITION,
-  Batchsigneds3downloadObjectRequests.JSON_PROPERTY_RESPONSE_CACHE_CONTROL,
-  Batchsigneds3downloadObjectRequests.JSON_PROPERTY_IF_NONE_MATCH,
-  Batchsigneds3downloadObjectRequests.JSON_PROPERTY_IF_MODIFIED_SINCE
+    Batchsigneds3downloadObjectRequests.JSON_PROPERTY_OBJECT_KEY,
+    Batchsigneds3downloadObjectRequests.JSON_PROPERTY_RESPONSE_CONTENT_TYPE,
+    Batchsigneds3downloadObjectRequests.JSON_PROPERTY_RESPONSE_CONTENT_DISPOSITION,
+    Batchsigneds3downloadObjectRequests.JSON_PROPERTY_RESPONSE_CACHE_CONTROL,
+    Batchsigneds3downloadObjectRequests.JSON_PROPERTY_IF_NONE_MATCH,
+    Batchsigneds3downloadObjectRequests.JSON_PROPERTY_IF_MODIFIED_SINCE
 })
 @JsonTypeName("batchsigneds3download_object_requests")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -63,17 +66,17 @@ public class Batchsigneds3downloadObjectRequests {
   public static final String JSON_PROPERTY_IF_MODIFIED_SINCE = "If-Modified-Since";
   private String ifModifiedSince;
 
-
   public Batchsigneds3downloadObjectRequests objectKey(String objectKey) {
-    
+
     this.objectKey = objectKey;
     return this;
   }
 
-   /**
+  /**
    * The URL-encoded human friendly name of the object to download.
+   * 
    * @return objectKey
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The URL-encoded human friendly name of the object to download.")
   @JsonProperty(JSON_PROPERTY_OBJECT_KEY)
@@ -83,24 +86,25 @@ public class Batchsigneds3downloadObjectRequests {
     return objectKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_OBJECT_KEY)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setObjectKey(String objectKey) {
     this.objectKey = objectKey;
   }
 
-
   public Batchsigneds3downloadObjectRequests responseContentType(String responseContentType) {
-    
+
     this.responseContentType = responseContentType;
     return this;
   }
 
-   /**
-   * The value of the Content-Type header you want to receive when you download the object using the signed URL. If you do not specify a value, the Content-Type header defaults to the value stored with OSS.
+  /**
+   * The value of the Content-Type header you want to receive when you download
+   * the object using the signed URL. If you do not specify a value, the
+   * Content-Type header defaults to the value stored with OSS.
+   * 
    * @return responseContentType
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The value of the Content-Type header you want to receive when you download the object using the signed URL. If you do not specify a value, the Content-Type header defaults to the value stored with OSS.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_CONTENT_TYPE)
@@ -110,24 +114,25 @@ public class Batchsigneds3downloadObjectRequests {
     return responseContentType;
   }
 
-
   @JsonProperty(JSON_PROPERTY_RESPONSE_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setResponseContentType(String responseContentType) {
     this.responseContentType = responseContentType;
   }
 
-
   public Batchsigneds3downloadObjectRequests responseContentDisposition(String responseContentDisposition) {
-    
+
     this.responseContentDisposition = responseContentDisposition;
     return this;
   }
 
-   /**
-   * The value of the Content-Disposition header you want to receive when you download the object using the signed URL. If you do not specify a value, the Content-Disposition header defaults to the value stored with OSS.
+  /**
+   * The value of the Content-Disposition header you want to receive when you
+   * download the object using the signed URL. If you do not specify a value, the
+   * Content-Disposition header defaults to the value stored with OSS.
+   * 
    * @return responseContentDisposition
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The value of the Content-Disposition header you want to receive when you download the object using the signed URL. If you do not specify a value, the Content-Disposition header defaults to the value stored with OSS.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_CONTENT_DISPOSITION)
@@ -137,24 +142,25 @@ public class Batchsigneds3downloadObjectRequests {
     return responseContentDisposition;
   }
 
-
   @JsonProperty(JSON_PROPERTY_RESPONSE_CONTENT_DISPOSITION)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setResponseContentDisposition(String responseContentDisposition) {
     this.responseContentDisposition = responseContentDisposition;
   }
 
-
   public Batchsigneds3downloadObjectRequests responseCacheControl(String responseCacheControl) {
-    
+
     this.responseCacheControl = responseCacheControl;
     return this;
   }
 
-   /**
-   * The value of the Cache-Control header you want to receive when you download the object using the signed URL. If you do not specify a value, the Cache-Control header defaults to the value stored with OSS.
+  /**
+   * The value of the Cache-Control header you want to receive when you download
+   * the object using the signed URL. If you do not specify a value, the
+   * Cache-Control header defaults to the value stored with OSS.
+   * 
    * @return responseCacheControl
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The value of the Cache-Control header you want to receive when you download the object using the signed URL. If you do not specify a value, the Cache-Control header defaults to the value stored with OSS.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_CACHE_CONTROL)
@@ -164,24 +170,26 @@ public class Batchsigneds3downloadObjectRequests {
     return responseCacheControl;
   }
 
-
   @JsonProperty(JSON_PROPERTY_RESPONSE_CACHE_CONTROL)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setResponseCacheControl(String responseCacheControl) {
     this.responseCacheControl = responseCacheControl;
   }
 
-
   public Batchsigneds3downloadObjectRequests ifNoneMatch(String ifNoneMatch) {
-    
+
     this.ifNoneMatch = ifNoneMatch;
     return this;
   }
 
-   /**
-   * The last known ETag value of the object. OSS returns the signed URL only if the &#x60;&#x60;If-None-Match&#x60;&#x60; header differs from the ETag value of the object on S3. If not, it returns a 304 &quot;Not Modified&quot; HTTP status.
+  /**
+   * The last known ETag value of the object. OSS returns the signed URL only if
+   * the &#x60;&#x60;If-None-Match&#x60;&#x60; header differs from the ETag value
+   * of the object on S3. If not, it returns a 304 &quot;Not Modified&quot; HTTP
+   * status.
+   * 
    * @return ifNoneMatch
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The last known ETag value of the object. OSS returns the signed URL only if the ``If-None-Match`` header differs from the ETag value of the object on S3. If not, it returns a 304 \"Not Modified\" HTTP status.")
   @JsonProperty(JSON_PROPERTY_IF_NONE_MATCH)
@@ -191,24 +199,25 @@ public class Batchsigneds3downloadObjectRequests {
     return ifNoneMatch;
   }
 
-
   @JsonProperty(JSON_PROPERTY_IF_NONE_MATCH)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setIfNoneMatch(String ifNoneMatch) {
     this.ifNoneMatch = ifNoneMatch;
   }
 
-
   public Batchsigneds3downloadObjectRequests ifModifiedSince(String ifModifiedSince) {
-    
+
     this.ifModifiedSince = ifModifiedSince;
     return this;
   }
 
-   /**
-   * A timestamp in the HTTP date format (Mon, DD Month YYYY HH:MM:SS GMT). A signed URL is returned only if the object has been modified since the specified timestamp. If not, a 304 (Not Modified) HTTP status is returned.
+  /**
+   * A timestamp in the HTTP date format (Mon, DD Month YYYY HH:MM:SS GMT). A
+   * signed URL is returned only if the object has been modified since the
+   * specified timestamp. If not, a 304 (Not Modified) HTTP status is returned.
+   * 
    * @return ifModifiedSince
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "A timestamp in the HTTP date format (Mon, DD Month YYYY HH:MM:SS GMT). A signed URL is returned only if the object has been modified since the specified timestamp. If not, a 304 (Not Modified) HTTP status is returned.")
   @JsonProperty(JSON_PROPERTY_IF_MODIFIED_SINCE)
@@ -218,13 +227,11 @@ public class Batchsigneds3downloadObjectRequests {
     return ifModifiedSince;
   }
 
-
   @JsonProperty(JSON_PROPERTY_IF_MODIFIED_SINCE)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setIfModifiedSince(String ifModifiedSince) {
     this.ifModifiedSince = ifModifiedSince;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -237,7 +244,8 @@ public class Batchsigneds3downloadObjectRequests {
     Batchsigneds3downloadObjectRequests batchsigneds3downloadObjectRequests = (Batchsigneds3downloadObjectRequests) o;
     return Objects.equals(this.objectKey, batchsigneds3downloadObjectRequests.objectKey) &&
         Objects.equals(this.responseContentType, batchsigneds3downloadObjectRequests.responseContentType) &&
-        Objects.equals(this.responseContentDisposition, batchsigneds3downloadObjectRequests.responseContentDisposition) &&
+        Objects.equals(this.responseContentDisposition, batchsigneds3downloadObjectRequests.responseContentDisposition)
+        &&
         Objects.equals(this.responseCacheControl, batchsigneds3downloadObjectRequests.responseCacheControl) &&
         Objects.equals(this.ifNoneMatch, batchsigneds3downloadObjectRequests.ifNoneMatch) &&
         Objects.equals(this.ifModifiedSince, batchsigneds3downloadObjectRequests.ifModifiedSince);
@@ -245,7 +253,8 @@ public class Batchsigneds3downloadObjectRequests {
 
   @Override
   public int hashCode() {
-    return Objects.hash(objectKey, responseContentType, responseContentDisposition, responseCacheControl, ifNoneMatch, ifModifiedSince);
+    return Objects.hash(objectKey, responseContentType, responseContentDisposition, responseCacheControl, ifNoneMatch,
+        ifModifiedSince);
   }
 
   @Override
@@ -274,4 +283,3 @@ public class Batchsigneds3downloadObjectRequests {
   }
 
 }
-

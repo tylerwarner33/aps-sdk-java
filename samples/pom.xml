@@ -42,10 +42,15 @@
         </plugins>
     </build>   
     <dependencies> 
-           <dependency>
+        <dependency>
            <groupId>com.autodesk.aps</groupId>
            <artifactId>modelderivative-sdk</artifactId>
             <version>${autodesk-modelderivative-sdk-version}</version>
+        </dependency>
+        <dependency>
+           <groupId>com.autodesk.aps</groupId>
+           <artifactId>datamanagement-sdk</artifactId>
+            <version>${autodesk-datamanagement-sdk-version}</version>
         </dependency>
         <dependency>
            <groupId>com.autodesk.aps</groupId>
@@ -71,6 +76,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <autodesk-modelderivative-sdk-version>1.0.0-beta</autodesk-modelderivative-sdk-version>
+        <autodesk-datamanagement-sdk-version>1.0.0-beta</autodesk-datamanagement-sdk-version>
         <autodesk-authentication-sdk-version>1.0.0-beta</autodesk-authentication-sdk-version>
         <autodesk-webhooks-sdk-version>1.0.0-beta</autodesk-webhooks-sdk-version>
         <autodesk-oss-sdk-version>1.0.0-beta</autodesk-oss-sdk-version>
