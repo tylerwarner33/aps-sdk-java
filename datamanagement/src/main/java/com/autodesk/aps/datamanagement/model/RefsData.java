@@ -24,8 +24,8 @@
  package com.autodesk.aps.datamanagement.model;
 
  import com.fasterxml.jackson.annotation.JsonSubTypes;
- import com.fasterxml.jackson.annotation.JsonTypeInfo;
- import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
  
  
  @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
@@ -36,8 +36,8 @@
  })
  @JsonTypeName("Refs_data")
  
- public interface RefsData  {
-     public String getType();
- }
+public interface RefsData  {
+    public String getTypeValue();
+}
  
  

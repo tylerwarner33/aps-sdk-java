@@ -24,14 +24,16 @@
  package com.autodesk.aps.datamanagement.model;
 
  import java.util.Objects;
- 
- import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
- import com.fasterxml.jackson.annotation.JsonInclude;
- import com.fasterxml.jackson.annotation.JsonProperty;
- import com.fasterxml.jackson.annotation.JsonPropertyOrder;
- import com.fasterxml.jackson.annotation.JsonTypeName;
- 
- import io.swagger.v3.oas.annotations.media.Schema;
+
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
  
  /**
   * A container of data describing a version.
@@ -69,23 +71,23 @@
      return this;
    }
  
-   /**
-    * Get type
-    * 
-    * @return type
-    **/
-   @Schema(required = true, description = "")
-   @JsonProperty(JSON_PROPERTY_TYPE)
-   @JsonInclude(value = JsonInclude.Include.ALWAYS)
- 
-   public TypeVersion getTypeEnum() {
-     return type;
-   }
- 
-   @Override
-   public String getType() {
-     return type != null ? type.getValue() : null;
-   }
+  /**
+   * Get type
+   * 
+   * @return type
+   **/
+  @Schema(required = true, description = "")
+  @JsonIgnore
+
+ public TypeVersion getType() {
+   return type;
+ }
+
+  @JsonGetter(JSON_PROPERTY_TYPE)
+  @Override
+  public String getTypeValue() {
+    return type != null ? type.getValue() : null;
+  }
  
    @JsonProperty(JSON_PROPERTY_TYPE)
    @JsonInclude(value = JsonInclude.Include.ALWAYS)

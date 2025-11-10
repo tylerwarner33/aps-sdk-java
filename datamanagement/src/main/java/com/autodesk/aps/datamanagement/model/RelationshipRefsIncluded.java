@@ -36,8 +36,8 @@
  })
  @JsonTypeName("RelationshipRefs_included")
  
- public interface RelationshipRefsIncluded  {
-     public String getType();
- }
+public interface RelationshipRefsIncluded  {
+    public String getTypeValue();
+}
  
  

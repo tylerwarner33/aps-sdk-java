@@ -276,6 +276,7 @@ public class DataManagementClientSample {
             for (FolderContentsData data : folderContents) {
                 if (data instanceof FolderData) {
                     FolderData folder = (FolderData) data;
+                    System.out.println("Folder Type: " + folder.getType());
                     System.out.println("Folder ID: " + folder.getId());
                     System.out.println("Folder Name: " + folder.getAttributes().getName());
                     System.out.println("Folder Extension Type: " + folder.getAttributes().getExtension().getType());
@@ -283,6 +284,7 @@ public class DataManagementClientSample {
                             "Folder Last Modified Time Rollup: " + folder.getAttributes().getLastModifiedTimeRollup());
                 } else if (data instanceof ItemData) {
                     ItemData item = (ItemData) data;
+                    System.out.println("Item Type: " + item.getType());
                     System.out.println("Item ID: " + item.getId());
                     System.out.println("Item Name: " + item.getAttributes().getDisplayName());
                 }
@@ -1076,7 +1078,7 @@ public class DataManagementClientSample {
 
         // // Folders
         // sample.getFolder();
-        // sample.getFolderContents();
+        sample.getFolderContents();
         // sample.getFolderParent();
         // sample.getFolderRefs();
         // sample.getFolderRelationshipsLinks();

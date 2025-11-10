@@ -36,8 +36,8 @@
  })
  @JsonTypeName("FolderRefs_data")
  
- public interface FolderRefsData  {
-     public String getType();
- }
+public interface FolderRefsData  {
+    public String getTypeValue();
+}
  
  

@@ -35,8 +35,8 @@
  })
  @JsonTypeName("ListRefs_included")
  
- public interface ListRefsIncluded  {
-     public String getType();
- }
+public interface ListRefsIncluded  {
+    public String getTypeValue();
+}
  
  
