@@ -59,6 +59,11 @@
         </dependency>
         <dependency>
             <groupId>com.autodesk.aps</groupId>
+            <artifactId>datamanagement-sdk</artifactId>
+            <version>${autodesk-datamanagement-sdk-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.autodesk.aps</groupId>
             <artifactId>oss-sdk</artifactId>
             <version>${autodesk-oss-sdk-version}</version>
         </dependency>
@@ -78,6 +83,7 @@
         <autodesk-modelderivative-sdk-version>1.0.0-beta</autodesk-modelderivative-sdk-version>
         <autodesk-datamanagement-sdk-version>1.0.0-beta</autodesk-datamanagement-sdk-version>
         <autodesk-authentication-sdk-version>1.0.0-beta</autodesk-authentication-sdk-version>
+        <autodesk-datamanagement-sdk-version>1.0.0-beta</autodesk-datamanagement-sdk-version>
         <autodesk-webhooks-sdk-version>1.0.0-beta</autodesk-webhooks-sdk-version>
         <autodesk-oss-sdk-version>1.0.0-beta</autodesk-oss-sdk-version>
         <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>

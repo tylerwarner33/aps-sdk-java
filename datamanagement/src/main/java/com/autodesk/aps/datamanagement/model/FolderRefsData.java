@@ -23,9 +23,18 @@
 
 package com.autodesk.aps.datamanagement.model;
 
-import com.autodesk.aps.datamanagement.utils.FolderRefsDataDeserializer;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
-@JsonDeserialize(using = FolderRefsDataDeserializer.class)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = FolderData.class, name = "folders"),
+    @JsonSubTypes.Type(value = ItemData.class, name = "items"),
+    @JsonSubTypes.Type(value = VersionData.class, name = "versions"),
+})
+@JsonTypeName("FolderRefs_data")
+
 public interface FolderRefsData {
+  public String getTypeValue();
 }
