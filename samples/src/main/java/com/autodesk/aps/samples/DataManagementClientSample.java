@@ -1063,57 +1063,57 @@ public class DataManagementClientSample {
         sample.Initialize();
 
         // Hubs
-        // sample.listHubs();
-        // sample.getHub();
+        sample.listHubs();
+        sample.getHub();
 
-        // // Projects
-        // sample.listProjects();
-        // sample.getProject();
-        // sample.getProjectHub();
-        // sample.listTopFolders();
-        // sample.getDownload();
-        // sample.getDownloadJob();
-        // sample.createDownload();
-        // sample.createStorage();
+        // Projects
+        sample.listProjects();
+        sample.getProject();
+        sample.getProjectHub();
+        sample.listTopFolders();
+        sample.getDownload();
+        sample.getDownloadJob();
+        sample.createDownload();
+        sample.createStorage();
 
-        // // Folders
-        // sample.getFolder();
+        // Folders
+        sample.getFolder();
         sample.getFolderContents();
-        // sample.getFolderParent();
-        // sample.getFolderRefs();
-        // sample.getFolderRelationshipsLinks();
-        // sample.getFolderRelationshipsRefs();
-        // sample.getFolderSearch();
-        // sample.createFolder();
-        // sample.createFolderRelationshipsRef();
-        // sample.patchFolder();
+        sample.getFolderParent();
+        sample.getFolderRefs();
+        sample.getFolderRelationshipsLinks();
+        sample.getFolderRelationshipsRefs();
+        sample.getFolderSearch();
+        sample.createFolder();
+        sample.createFolderRelationshipsRef();
+        sample.patchFolder();
 
-        // // Items
-        // sample.getItem();
-        // sample.getItemParentFolder();
-        // sample.getItemRefs();
-        // sample.getItemRelationshipsLinks();
-        // sample.getItemRelationshipsRefs();
-        // sample.getItemTip();
-        // sample.getItemVersions();
-        // sample.createItem();
-        // sample.createItemRelationshipsRef();
-        // sample.patchItem();
+        // Items
+        sample.getItem();
+        sample.getItemParentFolder();
+        sample.getItemRefs();
+        sample.getItemRelationshipsLinks();
+        sample.getItemRelationshipsRefs();
+        sample.getItemTip();
+        sample.getItemVersions();
+        sample.createItem();
+        sample.createItemRelationshipsRef();
+        sample.patchItem();
 
-        // // Versions
-        // sample.getVersion();
-        // sample.getVersionDownloadFormats();
-        // sample.getVersionDownloads();
-        // sample.getVersionItem();
-        // sample.getVersionRefs();
-        // sample.getVersionRelationshipsLinks();
-        // sample.getVersionRelationshipsRefs();
-        // sample.createVersion();
-        // sample.createVersionRelationshipsRef();
-        // sample.patchVersion();
+        // Versions
+        sample.getVersion();
+        sample.getVersionDownloadFormats();
+        sample.getVersionDownloads();
+        sample.getVersionItem();
+        sample.getVersionRefs();
+        sample.getVersionRelationshipsLinks();
+        sample.getVersionRelationshipsRefs();
+        sample.createVersion();
+        sample.createVersionRelationshipsRef();
+        sample.patchVersion();
 
-        // // Commands
-        // sample.executeCheckPermissionCommand();
-        // sample.executeListRefsCommand();
+        // Commands
+        sample.executeCheckPermissionCommand();
+        sample.executeListRefsCommand();
     }
 }

@@ -85,6 +85,13 @@ public class FolderData implements FolderContentsData, FolderRefsData, RefsData,
 
   @JsonGetter(JSON_PROPERTY_TYPE)
   @Override
+  /**
+   * Provides the string representation of the type field for JSON
+   * serialization
+   * and polymorphic type discrimination.
+   *
+   * @return the string value of the type field, or null if type is not set
+   */
   public String getTypeValue() {
     return type != null ? type.getValue() : null;
   }
