@@ -81,7 +81,8 @@ public class OssFileTransfer {
             String xAdsMetaContentType,
             String xAdsMetaContentDisposition,
             String xAdsMetaContentEncoding,
-            String xAdsMetaCacheControl)
+            String xAdsMetaCacheControl,
+            String xAdsUserDefinedMetadata)
             throws OssApiException {
         String requestId = handleRequestId(requestIdPrefix, bucketKey, objectKey);
         long fileSize = inputStreamLength != null ? inputStreamLength : calculateInputStreamLength(sourceToUpload);
@@ -168,7 +169,7 @@ public class OssFileTransfer {
         ApiResponse<ObjectDetails> completeResponse = objectsApi.completeSignedS3Upload(bucketKey, objectKey,
                 "application/json",
                 completes3uploadBody, xAdsMetaContentType, xAdsMetaContentDisposition, xAdsMetaContentEncoding,
-                xAdsMetaCacheControl, null, this.accessToken);
+                xAdsMetaCacheControl, xAdsUserDefinedMetadata, this.accessToken);
         if (onProgress != null)
             onProgress.onProgress(100);
         return completeResponse;

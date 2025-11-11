@@ -1517,7 +1517,8 @@ public class OssClient extends BaseClient {
                     uploadObjectOptionalParams.getXAdsMetaContentType(),
                     uploadObjectOptionalParams.getXAdsMetaContentDisposition(),
                     uploadObjectOptionalParams.getXAdsMetaContentEncoding(),
-                    uploadObjectOptionalParams.getXAdsMetaCacheControl()).getData();
+                    uploadObjectOptionalParams.getXAdsMetaCacheControl(),
+                    uploadObjectOptionalParams.getXAdsUserDefinedMetadata()).getData();
         } catch (OssApiException e) {
             throw e;
         } catch (Exception e) {
@@ -1574,7 +1575,8 @@ public class OssClient extends BaseClient {
                     uploadObjectOptionalParams.getXAdsMetaContentType(),
                     uploadObjectOptionalParams.getXAdsMetaContentDisposition(),
                     uploadObjectOptionalParams.getXAdsMetaContentEncoding(),
-                    uploadObjectOptionalParams.getXAdsMetaCacheControl()).getData();
+                    uploadObjectOptionalParams.getXAdsMetaCacheControl(),
+                    uploadObjectOptionalParams.getXAdsUserDefinedMetadata()).getData();
         } catch (OssApiException e) {
             throw e;
         } catch (Exception e) {
@@ -1630,7 +1632,8 @@ public class OssClient extends BaseClient {
                     uploadObjectOptionalParams.getXAdsMetaContentType(),
                     uploadObjectOptionalParams.getXAdsMetaContentDisposition(),
                     uploadObjectOptionalParams.getXAdsMetaContentEncoding(),
-                    uploadObjectOptionalParams.getXAdsMetaCacheControl()).getData();
+                    uploadObjectOptionalParams.getXAdsMetaCacheControl(),
+                    uploadObjectOptionalParams.getXAdsUserDefinedMetadata()).getData();
         } catch (OssApiException e) {
             throw e;
         } catch (Exception e) {

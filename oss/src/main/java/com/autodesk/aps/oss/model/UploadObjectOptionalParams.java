@@ -14,6 +14,7 @@ public class UploadObjectOptionalParams {
     private String xAdsMetaContentDisposition;
     private String xAdsMetaContentEncoding;
     private String xAdsMetaCacheControl;
+    private String xAdsUserDefinedMetadata;
     private String accessToken;
 
     private UploadObjectOptionalParams(Builder builder) {
@@ -23,6 +24,7 @@ public class UploadObjectOptionalParams {
         this.xAdsMetaContentDisposition = builder.xAdsMetaContentDisposition;
         this.xAdsMetaContentEncoding = builder.xAdsMetaContentEncoding;
         this.xAdsMetaCacheControl = builder.xAdsMetaCacheControl;
+        this.xAdsUserDefinedMetadata = builder.xAdsUserDefinedMetadata;
         this.accessToken = builder.accessToken;
     }
 
@@ -36,6 +38,7 @@ public class UploadObjectOptionalParams {
         private String xAdsMetaContentDisposition;
         private String xAdsMetaContentEncoding;
         private String xAdsMetaCacheControl;
+        private String xAdsUserDefinedMetadata;
         private String accessToken;
 
         /**
@@ -90,6 +93,15 @@ public class UploadObjectOptionalParams {
          */
         public Builder xAdsMetaCacheControl(String xAdsMetaCacheControl) {
             this.xAdsMetaCacheControl = xAdsMetaCacheControl;
+            return this;
+        }
+
+        /**
+         * @param xAdsUserDefinedMetadata The user-defined metadata for the object.
+         * @return The Builder instance for chaining.
+         */
+        public Builder xAdsUserDefinedMetadata(String xAdsUserDefinedMetadata) {
+            this.xAdsUserDefinedMetadata = xAdsUserDefinedMetadata;
             return this;
         }
 
@@ -165,6 +177,15 @@ public class UploadObjectOptionalParams {
      */
     public String getXAdsMetaCacheControl() {
         return xAdsMetaCacheControl;
+    }
+
+    /**
+     * Gets the user-defined metadata for the object.
+     * 
+     * @return String
+     */
+    public String getXAdsUserDefinedMetadata() {
+        return xAdsUserDefinedMetadata;
     }
 
     /**
