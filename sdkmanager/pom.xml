@@ -5,7 +5,7 @@
     <artifactId>sdkmanager</artifactId>
     <packaging>jar</packaging>
     <name>sdkmanager</name>
-    <version>1.0.0-beta</version>
+    <version>0.1.0-beta</version>
     <description>Common SDK Manager to support the various APS SDK's.</description>
      <licenses>
         <license>
