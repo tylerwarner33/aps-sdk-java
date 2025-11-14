@@ -4,10 +4,10 @@
     <groupId>com.autodesk.aps</groupId>
     <artifactId>modelderivative-sdk</artifactId>
     <packaging>jar</packaging>
-    <name>modelderivative-sdk</name>
+    <name>APS Java SDK : Model Derivative SDK</name>
     <version>0.1.0-beta</version>
     <description>Client SDK for Model Derivative API</description>
-
+    <url>https://aps.autodesk.com/</url>
     <licenses>
         <license>
                <name>Apache License, Version 2.0</name>
@@ -22,8 +22,20 @@
             <organizationUrl>www.autodesk.com</organizationUrl>
         </developer>
     </developers>
+    <scm>
+    <url>https://github.com/autodesk-platform-services/aps-sdk-java/tree/main</url>
+    </scm>
     <build>
-        <plugins>           
+        <plugins>     
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.9.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                <publishingServerId>central</publishingServerId>
+                </configuration>
+            </plugin>             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -68,6 +80,46 @@
                     <source>${maven-compiler-source-version}</source>
                     <target>${maven-compiler-target-version}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>   

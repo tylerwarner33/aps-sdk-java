@@ -228,7 +228,7 @@ public class DataManagementClient extends BaseClient {
      *                                    &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                    (required)
      * @param downloadPayload             (required)
-     * @param createDownloadOptionaParams class containing all optional parameters
+     * @param createDownloadOptionalParams class containing all optional parameters
      *                                    for the createDownload method.
      * @return CreatedDownload
      * @throws DataManagementApiException when an API call fails.
@@ -336,7 +336,7 @@ public class DataManagementClient extends BaseClient {
      *                                  &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                  (required)
      * @param folderPayload             (required)
-     * @param createFolderOptionaParams class containing all optional parameters for
+     * @param createFolderOptionalParams class containing all optional parameters for
      *                                  the createFolder method.
      * @return Folder
      * @throws DataManagementApiException when an API call fails.
@@ -428,7 +428,7 @@ public class DataManagementClient extends BaseClient {
      *                                                  &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                                  (required)
      * @param relationshipRefsPayload                   (required)
-     * @param createFolderRelationshipsRefOptionaParams class containing all
+     * @param createFolderRelationshipsRefOptionalParams class containing all
      *                                                  optional parameters for the
      *                                                  createFolderRelationshipsRef
      *                                                  method.
@@ -565,7 +565,7 @@ public class DataManagementClient extends BaseClient {
      *                                &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                (required)
      * @param itemPayload             (required)
-     * @param createItemOptionaParams class containing all optional parameters for
+     * @param createItemOptionalParams class containing all optional parameters for
      *                                the createItem method.
      * @return CreatedItem
      * @throws DataManagementApiException when an API call fails.
@@ -655,7 +655,7 @@ public class DataManagementClient extends BaseClient {
      * @param itemId                                  The unique identifier of an
      *                                                item. (required)
      * @param relationshipRefsPayload                 (required)
-     * @param createItemRelationshipsRefOptionaParams class containing all optional
+     * @param createItemRelationshipsRefOptionalParams class containing all optional
      *                                                parameters for the
      *                                                createItemRelationshipsRef
      *                                                method.
@@ -750,7 +750,7 @@ public class DataManagementClient extends BaseClient {
      *                                   &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                   (required)
      * @param storagePayload             (required)
-     * @param createStorageOptionaParams class containing all optional parameters
+     * @param createStorageOptionalParams class containing all optional parameters
      *                                   for the createStorage method.
      * @return Storage
      * @throws DataManagementApiException when an API call fails.
@@ -879,7 +879,7 @@ public class DataManagementClient extends BaseClient {
      *                                   &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                   (required)
      * @param versionPayload             (required)
-     * @param createVersionOptionaParams class containing all optional parameters
+     * @param createVersionOptionalParams class containing all optional parameters
      *                                   for the createVersion method.
      * @return CreatedVersion
      * @throws DataManagementApiException when an API call fails.
@@ -976,7 +976,7 @@ public class DataManagementClient extends BaseClient {
      *                                                   identifier of a version.
      *                                                   (required)
      * @param relationshipRefsPayload                    (required)
-     * @param createVersionRelationshipsRefOptionaParams class containing all
+     * @param createVersionRelationshipsRefOptionalParams class containing all
      *                                                   optional parameters for the
      *                                                   createVersionRelationshipsRef
      *                                                   method.
@@ -1088,7 +1088,7 @@ public class DataManagementClient extends BaseClient {
      *                                    defines the command to execute and
      *                                    contains any required input data.
      *                                    (required)
-     * @param executeCommandOptionaParams class containing all optional parameters
+     * @param executeCommandOptionalParams class containing all optional parameters
      *                                    for the executeCommand method.
      * @return Command
      * @throws DataManagementApiException when an API call fails.
@@ -1165,7 +1165,7 @@ public class DataManagementClient extends BaseClient {
      *                                 (required)
      * @param downloadId               The Job ID of the job used to generate the
      *                                 download. (required)
-     * @param getDownloadOptionaParams class containing all optional parameters for
+     * @param getDownloadOptionalParams class containing all optional parameters for
      *                                 the getDownload method.
      * @return Download
      * @throws DataManagementApiException when an API call fails.
@@ -1251,7 +1251,7 @@ public class DataManagementClient extends BaseClient {
      *                                    &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                    (required)
      * @param jobId                       The unique identifier of a job. (required)
-     * @param getDownloadJobOptionaParams class containing all optional parameters
+     * @param getDownloadJobOptionalParams class containing all optional parameters
      *                                    for the getDownloadJob method.
      * @return Job
      * @throws DataManagementApiException when an API call fails.
@@ -1340,7 +1340,7 @@ public class DataManagementClient extends BaseClient {
      *                               &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                               (required)
      * @param folderId               The unique identifier of a folder. (required)
-     * @param getFolderOptionaParams class containing all optional parameters for
+     * @param getFolderOptionalParams class containing all optional parameters for
      *                               the getFolder method.
      * @return Folder
      * @throws DataManagementApiException when an API call fails.
@@ -1433,7 +1433,7 @@ public class DataManagementClient extends BaseClient {
      *                                       (required)
      * @param folderId                       The unique identifier of a folder.
      *                                       (required)
-     * @param getFolderContentsOptionaParams class containing all optional
+     * @param getFolderContentsOptionalParams class containing all optional
      *                                       parameters for the getFolderContents
      *                                       method.
      * @return FolderContents
@@ -1528,7 +1528,7 @@ public class DataManagementClient extends BaseClient {
      *                                     (required)
      * @param folderId                     The unique identifier of a folder.
      *                                     (required)
-     * @param getFolderParentOptionaParams class containing all optional parameters
+     * @param getFolderParentOptionalParams class containing all optional parameters
      *                                     for the getFolderParent method.
      * @return Folder
      * @throws DataManagementApiException when an API call fails.
@@ -1630,7 +1630,7 @@ public class DataManagementClient extends BaseClient {
      *                                   (required)
      * @param folderId                   The unique identifier of a folder.
      *                                   (required)
-     * @param getFolderRefsOptionaParams class containing all optional parameters
+     * @param getFolderRefsOptionalParams class containing all optional parameters
      *                                   for the getFolderRefs method.
      * @return FolderRefs
      * @throws DataManagementApiException when an API call fails.
@@ -1732,7 +1732,7 @@ public class DataManagementClient extends BaseClient {
      *                                                 (required)
      * @param folderId                                 The unique identifier of a
      *                                                 folder. (required)
-     * @param getFolderRelationshipsLinksOptionaParams class containing all optional
+     * @param getFolderRelationshipsLinksOptionalParams class containing all optional
      *                                                 parameters for the
      *                                                 getFolderRelationshipsLinks
      *                                                 method.
@@ -1857,7 +1857,7 @@ public class DataManagementClient extends BaseClient {
      *                                                translates to a project ID of
      *                                                &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                                (required)
-     * @param getFolderRelationshipsRefsOptionaParams class containing all optional
+     * @param getFolderRelationshipsRefsOptionalParams class containing all optional
      *                                                parameters for the
      *                                                getFolderRelationshipsRefs
      *                                                method.
@@ -1998,7 +1998,7 @@ public class DataManagementClient extends BaseClient {
      *                                     (required)
      * @param folderId                     The unique identifier of a folder.
      *                                     (required)
-     * @param getFolderSearchOptionaParams class containing all optional parameters
+     * @param getFolderSearchOptionalParams class containing all optional parameters
      *                                     for the getFolderSearch method.
      * @return Search
      * @throws DataManagementApiException when an API call fails.
@@ -2063,7 +2063,7 @@ public class DataManagementClient extends BaseClient {
      * documentation](https://en.docs.acc.v1/overview/introduction/).
      * 
      * @param hubId               The unique identifier of a hub. (required)
-     * @param getHubOptionaParams class containing all optional parameters for the
+     * @param getHubOptionalParams class containing all optional parameters for the
      *                            getHub method.
      * @return Hub
      * @throws DataManagementApiException when an API call fails.
@@ -2142,7 +2142,7 @@ public class DataManagementClient extends BaseClient {
      * documentation](https://en.docs.acc.v1/overview/introduction/).
      * 
      * @param hubId                       The unique identifier of a hub. (required)
-     * @param getHubProjectsOptionaParams class containing all optional parameters
+     * @param getHubProjectsOptionalParams class containing all optional parameters
      *                                    for the getHubProjects method.
      * @return Projects
      * @throws DataManagementApiException when an API call fails.
@@ -2214,7 +2214,7 @@ public class DataManagementClient extends BaseClient {
      * For more information, see the [ACC Platform API
      * documentation](https://en.docs.acc.v1/overview/introduction/).
      * 
-     * @param getHubsOptionaParams class containing all optional parameters for the
+     * @param getHubsOptionalParams class containing all optional parameters for the
      *                             getHubs method.
      * @return Hubs
      * @throws DataManagementApiException when an API call fails.
@@ -2307,7 +2307,7 @@ public class DataManagementClient extends BaseClient {
      *                             &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                             (required)
      * @param itemId               The unique identifier of an item. (required)
-     * @param getItemOptionaParams class containing all optional parameters for the
+     * @param getItemOptionalParams class containing all optional parameters for the
      *                             getItem method.
      * @return Item
      * @throws DataManagementApiException when an API call fails.
@@ -2395,7 +2395,7 @@ public class DataManagementClient extends BaseClient {
      *                                         (required)
      * @param itemId                           The unique identifier of an item.
      *                                         (required)
-     * @param getItemParentFolderOptionaParams class containing all optional
+     * @param getItemParentFolderOptionalParams class containing all optional
      *                                         parameters for the
      *                                         getItemParentFolder method.
      * @return Folder
@@ -2502,7 +2502,7 @@ public class DataManagementClient extends BaseClient {
      *                                 &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                 (required)
      * @param itemId                   The unique identifier of an item. (required)
-     * @param getItemRefsOptionaParams class containing all optional parameters for
+     * @param getItemRefsOptionalParams class containing all optional parameters for
      *                                 the getItemRefs method.
      * @return Refs
      * @throws DataManagementApiException when an API call fails.
@@ -2604,7 +2604,7 @@ public class DataManagementClient extends BaseClient {
      *                                               (required)
      * @param itemId                                 The unique identifier of an
      *                                               item. (required)
-     * @param getItemRelationshipsLinksOptionaParams class containing all optional
+     * @param getItemRelationshipsLinksOptionalParams class containing all optional
      *                                               parameters for the
      *                                               getItemRelationshipsLinks
      *                                               method.
@@ -2729,7 +2729,7 @@ public class DataManagementClient extends BaseClient {
      *                                              (required)
      * @param itemId                                The unique identifier of an
      *                                              item. (required)
-     * @param getItemRelationshipsRefsOptionaParams class containing all optional
+     * @param getItemRelationshipsRefsOptionalParams class containing all optional
      *                                              parameters for the
      *                                              getItemRelationshipsRefs method.
      * @return RelationshipRefs
@@ -2827,7 +2827,7 @@ public class DataManagementClient extends BaseClient {
      *                                &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                (required)
      * @param itemId                  The unique identifier of an item. (required)
-     * @param getItemTipOptionaParams class containing all optional parameters for
+     * @param getItemTipOptionalParams class containing all optional parameters for
      *                                the getItemTip method.
      * @return ItemTip
      * @throws DataManagementApiException when an API call fails.
@@ -2914,7 +2914,7 @@ public class DataManagementClient extends BaseClient {
      *                                     (required)
      * @param itemId                       The unique identifier of an item.
      *                                     (required)
-     * @param getItemVersionsOptionaParams class containing all optional parameters
+     * @param getItemVersionsOptionalParams class containing all optional parameters
      *                                     for the getItemVersions method.
      * @return Versions
      * @throws DataManagementApiException when an API call fails.
@@ -3022,7 +3022,7 @@ public class DataManagementClient extends BaseClient {
      *                                translates to a project ID of
      *                                &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                (required)
-     * @param getProjectOptionaParams class containing all optional parameters for
+     * @param getProjectOptionalParams class containing all optional parameters for
      *                                the getProject method.
      * @return Project
      * @throws DataManagementApiException when an API call fails.
@@ -3107,7 +3107,7 @@ public class DataManagementClient extends BaseClient {
      *                                   translates to a project ID of
      *                                   &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                   (required)
-     * @param getProjectHubOptionaParams class containing all optional parameters
+     * @param getProjectHubOptionalParams class containing all optional parameters
      *                                   for the getProjectHub method.
      * @return Hub
      * @throws DataManagementApiException when an API call fails.
@@ -3211,7 +3211,7 @@ public class DataManagementClient extends BaseClient {
      *                                          translates to a project ID of
      *                                          &#x60;&#x60;b.c8b0c73d-3ae9&#x60;&#x60;.
      *                                          (required)
-     * @param getProjectTopFoldersOptionaParams class containing all optional
+     * @param getProjectTopFoldersOptionalParams class containing all optional
      *                                          parameters for the
      *                                          getProjectTopFolders method.
      * @return TopFolders
@@ -3299,7 +3299,7 @@ public class DataManagementClient extends BaseClient {
      *                                (required)
      * @param versionId               The URL encoded unique identifier of a
      *                                version. (required)
-     * @param getVersionOptionaParams class containing all optional parameters for
+     * @param getVersionOptionalParams class containing all optional parameters for
      *                                the getVersion method.
      * @return Version
      * @throws DataManagementApiException when an API call fails.
@@ -3392,7 +3392,7 @@ public class DataManagementClient extends BaseClient {
      * @param versionId                              The URL encoded unique
      *                                               identifier of a version.
      *                                               (required)
-     * @param getVersionDownloadFormatsOptionaParams class containing all optional
+     * @param getVersionDownloadFormatsOptionalParams class containing all optional
      *                                               parameters for the
      *                                               getVersionDownloadFormats
      *                                               method.
@@ -3484,7 +3484,7 @@ public class DataManagementClient extends BaseClient {
      *                                         (required)
      * @param versionId                        The URL encoded unique identifier of
      *                                         a version. (required)
-     * @param getVersionDownloadsOptionaParams class containing all optional
+     * @param getVersionDownloadsOptionalParams class containing all optional
      *                                         parameters for the
      *                                         getVersionDownloads method.
      * @return Downloads
@@ -3572,7 +3572,7 @@ public class DataManagementClient extends BaseClient {
      *                                    (required)
      * @param versionId                   The URL encoded unique identifier of a
      *                                    version. (required)
-     * @param getVersionItemOptionaParams class containing all optional parameters
+     * @param getVersionItemOptionalParams class containing all optional parameters
      *                                    for the getVersionItem method.
      * @return Item
      * @throws DataManagementApiException when an API call fails.
@@ -3689,7 +3689,7 @@ public class DataManagementClient extends BaseClient {
      *                                    (required)
      * @param versionId                   The URL encoded unique identifier of a
      *                                    version. (required)
-     * @param getVersionRefsOptionaParams class containing all optional parameters
+     * @param getVersionRefsOptionalParams class containing all optional parameters
      *                                    for the getVersionRefs method.
      * @return Refs
      * @throws DataManagementApiException when an API call fails.
@@ -3790,7 +3790,7 @@ public class DataManagementClient extends BaseClient {
      * @param versionId                                 The URL encoded unique
      *                                                  identifier of a version.
      *                                                  (required)
-     * @param getVersionRelationshipsLinksOptionaParams class containing all
+     * @param getVersionRelationshipsLinksOptionalParams class containing all
      *                                                  optional parameters for the
      *                                                  getVersionRelationshipsLinks
      *                                                  method.
@@ -3922,7 +3922,7 @@ public class DataManagementClient extends BaseClient {
      * @param versionId                                The URL encoded unique
      *                                                 identifier of a version.
      *                                                 (required)
-     * @param getVersionRelationshipsRefsOptionaParams class containing all optional
+     * @param getVersionRelationshipsRefsOptionalParams class containing all optional
      *                                                 parameters for the
      *                                                 getVersionRelationshipsRefs
      *                                                 method.
@@ -4056,7 +4056,7 @@ public class DataManagementClient extends BaseClient {
      *                                 (required)
      * @param folderId                 The unique identifier of a folder. (required)
      * @param modifyFolderPayload      Describe the folder to be patched. (required)
-     * @param patchFolderOptionaParams class containing all optional parameters for
+     * @param patchFolderOptionalParams class containing all optional parameters for
      *                                 the patchFolder method.
      * @return Folder
      * @throws DataManagementApiException when an API call fails.
@@ -4149,7 +4149,7 @@ public class DataManagementClient extends BaseClient {
      *                               (required)
      * @param itemId                 The unique identifier of an item. (required)
      * @param modifyItemPayload      Describe the item to be patched. (required)
-     * @param patchItemOptionaParams class containing all optional parameters for
+     * @param patchItemOptionalParams class containing all optional parameters for
      *                               the patchItem method.
      * @return Item
      * @throws DataManagementApiException when an API call fails.
@@ -4242,7 +4242,7 @@ public class DataManagementClient extends BaseClient {
      * @param versionId                 The URL encoded unique identifier of a
      *                                  version. (required)
      * @param modifyVersionPayload      (required)
-     * @param patchVersionOptionaParams class containing all optional parameters for
+     * @param patchVersionOptionalParams class containing all optional parameters for
      *                                  the patchVersion method.
      * @return Version
      * @throws DataManagementApiException when an API call fails.

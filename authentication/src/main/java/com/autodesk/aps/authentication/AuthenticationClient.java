@@ -24,6 +24,7 @@ package com.autodesk.aps.authentication;
 
 import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.HttpEntity;
+
 import com.autodesk.aps.authentication.api.TokenApi;
 import com.autodesk.aps.authentication.api.UsersApi;
 import com.autodesk.aps.authentication.model.AuthorizeOptionalParams;
@@ -46,6 +47,11 @@ import com.autodesk.aps.sdkmanager.SdkManager;
 import com.autodesk.aps.sdkmanager.SdkManagerBuilder;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+/**
+ * Client for APS Authentication API operations.
+ * Provides methods for OAuth authentication, token management, and user
+ * information retrieval.
+ */
 public class AuthenticationClient {
     private final TokenApi tokenApi;
     private final UsersApi usersApi;
@@ -62,12 +68,13 @@ public class AuthenticationClient {
         this.tokenApi = new TokenApi(sdkManager);
         this.usersApi = new UsersApi(sdkManager);
     }
-     /**
+
+    /**
      * Initializes a new instance of the AuthenticationClient class.
      * 
      */
     public AuthenticationClient() {
-       this(null);
+        this(null);
 
     }
 
@@ -114,6 +121,7 @@ public class AuthenticationClient {
      *                     you specify for this parameter must not exceed 2000
      *                     characters and it cannot contain more than 50 scopes.
      *                     (required)
+     * @return String URL for authorization
      */
 
     public String authorize(String clientId, ResponseType responseType, String redirectUri, Scopes[] scopes)
@@ -137,30 +145,34 @@ public class AuthenticationClient {
      * **Note:** This operation is intended for use with client-side applications
      * only. It is not suitable for server-side applications.
      * 
-     * @param clientId               The Client ID of the calling application, as
-     *                               registered with APS. (required)
-     * @param responseType           The type of response you want to receive.
-     *                               Possible values are: -
-     *                               &#x60;&#x60;code&#x60;&#x60; - Authorization
-     *                               code grant. - &#x60;&#x60;id_token&#x60;&#x60;
-     *                               - OpenID Connect ID token. (required)
-     * @param redirectUri            The URI that APS redirects users to after they
-     *                               grant or deny access permission to the
-     *                               application. Must match the Callback URL for
-     *                               the application as registered with APS. Must be
-     *                               specified as a URL-safe string. It can include
-     *                               query parameters or any other valid URL
-     *                               construct. (required)
-     * @param scopes                 A URL-encoded space-delimited list of requested
-     *                               scopes. See the &#x60;Developer&#39;s Guide
-     *                               documentation on scopes
-     *                               &lt;/en/docs/oauth/v2/developers_guide/scopes/&gt;&#x60;_
-     *                               for a list of valid values you can provide. The
-     *                               string you specify for this parameter must not
-     *                               exceed 2000 characters and it cannot contain
-     *                               more than 50 scopes. (required)
-     * @param authorizeOptionaParams class containing all optional parameters for
-     *                               the authorize method.
+     * @param clientId                The Client ID of the calling application, as
+     *                                registered with APS. (required)
+     * @param responseType            The type of response you want to receive.
+     *                                Possible values are: -
+     *                                &#x60;&#x60;code&#x60;&#x60; - Authorization
+     *                                code grant. - &#x60;&#x60;id_token&#x60;&#x60;
+     *                                - OpenID Connect ID token. (required)
+     * @param redirectUri             The URI that APS redirects users to after they
+     *                                grant or deny access permission to the
+     *                                application. Must match the Callback URL for
+     *                                the application as registered with APS. Must
+     *                                be
+     *                                specified as a URL-safe string. It can include
+     *                                query parameters or any other valid URL
+     *                                construct. (required)
+     * @param scopes                  A URL-encoded space-delimited list of
+     *                                requested
+     *                                scopes. See the &#x60;Developer&#39;s Guide
+     *                                documentation on scopes
+     *                                &lt;/en/docs/oauth/v2/developers_guide/scopes/&gt;&#x60;_
+     *                                for a list of valid values you can provide.
+     *                                The
+     *                                string you specify for this parameter must not
+     *                                exceed 2000 characters and it cannot contain
+     *                                more than 50 scopes. (required)
+     * @param authorizeOptionalParams class containing all optional parameters for
+     *                                the authorize method.
+     * @return String URL for authorization
      */
 
     public String authorize(String clientId, ResponseType responseType, String redirectUri, Scopes[] scopes,
@@ -177,7 +189,6 @@ public class AuthenticationClient {
             throw new AuthenticationApiException(e);
         }
     }
-
 
     /**
      * Get JWKS
@@ -225,6 +236,7 @@ public class AuthenticationClient {
      * Get User Info
      * Retrieves information about the authenticated user.
      * 
+     * @param accessToken The access token for the authenticated user
      * @return UserInfo
      * @throws AuthenticationApiException when an API call fails.
      */
@@ -248,11 +260,13 @@ public class AuthenticationClient {
      * 
      * This operation has a rate limit of 500 calls per minute.
      * 
+     * @param token    The token to introspect
+     * @param clientId The client ID of the application
      * @return IntrospectToken
      */
 
     public IntrospectToken introspectToken(String token, String clientId) {
-    
+
         return introspectToken(token, clientId, null);
     }
 
@@ -264,6 +278,10 @@ public class AuthenticationClient {
      * 
      * This operation has a rate limit of 500 calls per minute.
      * 
+     * @param token                         The token to introspect
+     * @param clientId                      The client ID of the application
+     * @param introspectTokenOptionalParams class containing all optional parameters
+     *                                      for the introspectToken method
      * @return IntrospectToken
      */
 
@@ -296,6 +314,7 @@ public class AuthenticationClient {
      * 
      * This operation has a rate limit of 500 calls per minute.
      * 
+     * @return String URL for logout
      */
 
     public String logout() throws AuthenticationApiException {
@@ -312,6 +331,7 @@ public class AuthenticationClient {
      * This operation has a rate limit of 500 calls per minute.
      * 
      * @param postLogoutRedirectUri The URI to redirect the user to after logout.
+     * @return String URL for logout
      */
 
     public String logout(String postLogoutRedirectUri) {
@@ -331,6 +351,7 @@ public class AuthenticationClient {
      * This operation has a rate limit of 100 calls per minute.
      * 
      * @param token         The token to be revoked. (required)
+     * @param clientId      The client ID of the application
      * @param tokenTypeHint (required)
      * @return Object
      */
@@ -347,10 +368,11 @@ public class AuthenticationClient {
      * 
      * This operation has a rate limit of 100 calls per minute.
      * 
-     * @param token               The token to be revoked. (required)
-     * @param tokenTypeHint       (required)
-     * @param revokeOptionaParams class containing all optional parameters for the
-     *                            revoke method.
+     * @param token                The token to be revoked. (required)
+     * @param clientId             The client ID of the application
+     * @param tokenTypeHint        (required)
+     * @param revokeOptionalParams class containing all optional parameters for the
+     *                             revoke method.
      * @return Object
      */
 
@@ -415,15 +437,14 @@ public class AuthenticationClient {
      * Refresh Token
      * Refreshes an access token using the refresh token.
      * 
-     * @param refreshToken The refresh token to use for acquiring a new access
+     * @param refreshToken The refresh token to use for acquiring a
+     *                     new
+     *                     access
      *                     token. (required)
-     * @param clientId     The Client ID of the calling application, as registered
+     * @param clientId     The Client ID of the calling application,
+     *                     as
+     *                     registered
      *                     with APS. (required)
-     * @param clientSecret             The Client Secret of the calling application,
-     *                                 as registered with APS. (optional)
-     * @param scopes                   The requested scopes. (optional)
-     * @param fetchTokenOptionalParams class containing all optional parameters for
-     *                                 the refreshToken method.
      * @return Refreshed three legged access token.
      */
     public ThreeLeggedToken refreshToken(String refreshToken, String clientId) {
@@ -434,15 +455,15 @@ public class AuthenticationClient {
      * Refresh Token
      * Refreshes an access token using the refresh token.
      * 
-     * @param refreshToken             The refresh token to use for acquiring a new
-     *                                 access token. (required)
-     * @param clientId                 The Client ID of the calling application, as
-     *                                 registered with APS. (required)
-     * @param clientSecret             The Client Secret of the calling application,
-     *                                 as registered with APS. (optional)
-     * @param scopes                   The requested scopes. (optional)
-     * @param fetchTokenOptionalParams class containing all optional parameters for
-     *                                 the refreshToken method.
+     * @param refreshToken               The refresh token to use for acquiring a
+     *                                   new
+     *                                   access token. (required)
+     * @param clientId                   The Client ID of the calling application,
+     *                                   as
+     *                                   registered with APS. (required)
+     * @param refreshTokenOptionalParams class containing all optional parameters
+     *                                   for
+     *                                   the refreshToken method.
      * @return Refreshed three legged access token.
      */
     public ThreeLeggedToken refreshToken(String refreshToken, String clientId,
@@ -486,17 +507,13 @@ public class AuthenticationClient {
      * For Private clients specify the client secret along with the Client ID.
      * For Public clients only Client ID needs to be specified.
      * 
-     * @param clientId     The Client ID of the application making the request.
-     *                     (required)
-     * @param code         The authorization code that was passed to your
-     *                     application when the user granted access permission to
-     *                     your application. (required)
-     * @param redirectUri  The URI that APS redirects users to after they grant or
-     *                     deny access permission to the application. (required)
-     * @param clientSecret The Client secret of the application making the request.
-     *                     Required only for private clients. (optional)
-     * @param codeVerifier A random URL-encoded string between 43 characters and 128
-     *                     characters. (optional)
+     * @param clientId    The Client ID of the application making the request.
+     *                    (required)
+     * @param code        The authorization code that was passed to your
+     *                    application when the user granted access permission to
+     *                    your application. (required)
+     * @param redirectUri The URI that APS redirects users to after they grant or
+     *                    deny access permission to the application. (required)
      * @return ThreeLeggedToken
      */
 
@@ -511,21 +528,17 @@ public class AuthenticationClient {
      * For Private clients specify the client secret along with the Client ID.
      * For Public clients only Client ID needs to be specified.
      * 
-     * @param clientId                 The Client ID of the application making the
-     *                                 request. (required)
-     * @param code                     The authorization code that was passed to
-     *                                 your application when the user granted access
-     *                                 permission to your application. (required)
-     * @param redirectUri              The URI that APS redirects users to after
-     *                                 they grant or deny access permission to the
-     *                                 application. (required)
-     * @param clientSecret             The Client secret of the application making
-     *                                 the request. Required only for private
-     *                                 clients. (optional)
-     * @param codeVerifier             A random URL-encoded string between 43
-     *                                 characters and 128 characters. (optional)
-     * @param ThreeLeggedOptionalParams class containing all optional parameters for
-     *                                 the getThreeLeggedToken method.
+     * @param clientId                  The Client ID of the application making the
+     *                                  request. (required)
+     * @param code                      The authorization code that was passed to
+     *                                  your application when the user granted
+     *                                  access
+     *                                  permission to your application. (required)
+     * @param redirectUri               The URI that APS redirects users to after
+     *                                  they grant or deny access permission to the
+     *                                  application. (required)
+     * @param threeLeggedOptionalParams class containing all optional parameters for
+     *                                  the getThreeLeggedToken method.
      * @return ThreeLeggedToken.
      */
     public ThreeLeggedToken getThreeLeggedToken(String clientId, String code, String redirectUri,

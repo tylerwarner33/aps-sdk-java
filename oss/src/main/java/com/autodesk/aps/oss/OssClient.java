@@ -152,12 +152,12 @@ public class OssClient extends BaseClient {
      * 
      * You can specify up to 25 objects in this operation.
      * 
-     * @param bucketKey                        The bucket key of the bucket that
-     *                                         contains the objects you are
-     *                                         operating on. (required)
-     * @param batchCompleteUploadOptionaParams class containing all optional
-     *                                         parameters for the
-     *                                         batchCompleteUpload method.
+     * @param bucketKey                         The bucket key of the bucket that
+     *                                          contains the objects you are
+     *                                          operating on. (required)
+     * @param batchCompleteUploadOptionalParams class containing all optional
+     *                                          parameters for the
+     *                                          batchCompleteUpload method.
      * @return BatchcompleteuploadResponse
      * @throws OssApiException when an API call fails.
      */
@@ -222,15 +222,15 @@ public class OssClient extends BaseClient {
      * applications that call this operation will receive a &quot;403
      * Forbidden&quot; error.
      * 
-     * @param bucketKey                          The bucket key of the bucket that
-     *                                           contains the objects you are
-     *                                           operating on. (required)
-     * @param batchsigneds3downloadObject        An array of objects representing
-     *                                           each request for a signed download
-     *                                           URL. (required)
-     * @param batchSignedS3DownloadOptionaParams class containing all optional
-     *                                           parameters for the
-     *                                           batchSignedS3Download method.
+     * @param bucketKey                           The bucket key of the bucket that
+     *                                            contains the objects you are
+     *                                            operating on. (required)
+     * @param batchsigneds3downloadObject         An array of objects representing
+     *                                            each request for a signed download
+     *                                            URL. (required)
+     * @param batchSignedS3DownloadOptionalParams class containing all optional
+     *                                            parameters for the
+     *                                            batchSignedS3Download method.
      * @return Batchsigneds3downloadResponse
      * @throws OssApiException when an API call fails.
      */
@@ -317,12 +317,12 @@ public class OssClient extends BaseClient {
      * use the same &#x60;&#x60;uploadKey&#x60;&#x60; that was returned when you
      * originally called this operation.
      * 
-     * @param bucketKey                        The bucket key of the bucket that
-     *                                         contains the objects you are
-     *                                         operating on. (required)
-     * @param batchSignedS3UploadOptionaParams class containing all optional
-     *                                         parameters for the
-     *                                         batchSignedS3Upload method.
+     * @param bucketKey                         The bucket key of the bucket that
+     *                                          contains the objects you are
+     *                                          operating on. (required)
+     * @param batchSignedS3UploadOptionalParams class containing all optional
+     *                                          parameters for the
+     *                                          batchSignedS3Upload method.
      * @return Batchsigneds3uploadResponse
      * @throws OssApiException when an API call fails.
      */
@@ -377,18 +377,18 @@ public class OssClient extends BaseClient {
      * signed S3 upload URL. You must call this operation only after all
      * parts/chunks of the object has been uploaded.
      * 
-     * @param bucketKey                           The bucket key of the bucket that
-     *                                            contains the objects you are
-     *                                            operating on. (required)
-     * @param objectKey                           The URL-encoded human friendly
-     *                                            name of the object. (required)
-     * @param contentType                         Must be
-     *                                            &#x60;&#x60;application/json&#x60;&#x60;.
-     *                                            (required)
-     * @param completes3uploadBody                (required)
-     * @param completeSignedS3UploadOptionaParams class containing all optional
-     *                                            parameters for the
-     *                                            completeSignedS3Upload method.
+     * @param bucketKey                            The bucket key of the bucket that
+     *                                             contains the objects you are
+     *                                             operating on. (required)
+     * @param objectKey                            The URL-encoded human friendly
+     *                                             name of the object. (required)
+     * @param contentType                          Must be
+     *                                             &#x60;&#x60;application/json&#x60;&#x60;.
+     *                                             (required)
+     * @param completes3uploadBody                 (required)
+     * @param completeSignedS3UploadOptionalParams class containing all optional
+     *                                             parameters for the
+     *                                             completeSignedS3Upload method.
      * @throws OssApiException when an API call fails.
      */
 
@@ -441,14 +441,15 @@ public class OssClient extends BaseClient {
      * Copy Object
      * Creates a copy of an object within the bucket.
      * 
-     * @param bucketKey           The bucket key of the bucket that contains the
-     *                            objects you are operating on. (required)
-     * @param objectKey           The URL-encoded human friendly name of the object.
-     *                            (required)
-     * @param newObjKey           A URL-encoded human friendly name to identify the
-     *                            copied object. (required)
-     * @param copyToOptionaParams class containing all optional parameters for the
-     *                            copyTo method.
+     * @param bucketKey            The bucket key of the bucket that contains the
+     *                             objects you are operating on. (required)
+     * @param objectKey            The URL-encoded human friendly name of the
+     *                             object.
+     *                             (required)
+     * @param newObjKey            A URL-encoded human friendly name to identify the
+     *                             copied object. (required)
+     * @param copyToOptionalParams class containing all optional parameters for the
+     *                             copyTo method.
      * @return ObjectDetails
      * @throws OssApiException when an API call fails.
      */
@@ -527,30 +528,31 @@ public class OssClient extends BaseClient {
      * instead. For details, see [Upload Files to BIM 360 Document
      * Management](/en/docs/bim360/v1/tutorials/document-management/upload-document).
      * 
-     * @param region                    Specifies where the bucket containing the
-     *                                  object is stored. Possible values are: -
-     *                                  &#x60;&#x60;US&#x60;&#x60; : (Default) Data
-     *                                  center for the US region. -
-     *                                  &#x60;&#x60;EMEA&#x60;&#x60; : Data center
-     *                                  for the European Union, Middle East, and
-     *                                  Africa. - &#x60;&#x60;AUS&#x60;&#x60; :
-     *                                  (Beta) Data center for Australia. -
-     *                                  &#x60;&#x60;CAN&#x60;&#x60; : Data center
-     *                                  for the Canada region. -
-     *                                  &#x60;&#x60;DEU&#x60;&#x60; : Data center
-     *                                  for the Germany region. -
-     *                                  &#x60;&#x60;IND&#x60;&#x60; : Data center
-     *                                  for the India region. -
-     *                                  &#x60;&#x60;JPN&#x60;&#x60; : Data center
-     *                                  for the Japan region. -
-     *                                  &#x60;&#x60;GBR&#x60;&#x60; : Data center
-     *                                  for the United Kingdom region. **Note:**
-     *                                  Beta features are subject to change. Please
-     *                                  do not use in production environments.
-     *                                  (required)
-     * @param createBucketsPayload      (required)
-     * @param createBucketOptionaParams class containing all optional parameters for
-     *                                  the createBucket method.
+     * @param region                     Specifies where the bucket containing the
+     *                                   object is stored. Possible values are: -
+     *                                   &#x60;&#x60;US&#x60;&#x60; : (Default) Data
+     *                                   center for the US region. -
+     *                                   &#x60;&#x60;EMEA&#x60;&#x60; : Data center
+     *                                   for the European Union, Middle East, and
+     *                                   Africa. - &#x60;&#x60;AUS&#x60;&#x60; :
+     *                                   (Beta) Data center for Australia. -
+     *                                   &#x60;&#x60;CAN&#x60;&#x60; : Data center
+     *                                   for the Canada region. -
+     *                                   &#x60;&#x60;DEU&#x60;&#x60; : Data center
+     *                                   for the Germany region. -
+     *                                   &#x60;&#x60;IND&#x60;&#x60; : Data center
+     *                                   for the India region. -
+     *                                   &#x60;&#x60;JPN&#x60;&#x60; : Data center
+     *                                   for the Japan region. -
+     *                                   &#x60;&#x60;GBR&#x60;&#x60; : Data center
+     *                                   for the United Kingdom region. **Note:**
+     *                                   Beta features are subject to change. Please
+     *                                   do not use in production environments.
+     *                                   (required)
+     * @param createBucketsPayload       (required)
+     * @param createBucketOptionalParams class containing all optional parameters
+     *                                   for
+     *                                   the createBucket method.
      * @return Bucket
      * @throws OssApiException when an API call fails.
      */
@@ -619,14 +621,14 @@ public class OssClient extends BaseClient {
      * Only the application that owns the bucket containing the object can call this
      * operation.
      * 
-     * @param bucketKey                         The bucket key of the bucket that
-     *                                          contains the objects you are
-     *                                          operating on. (required)
-     * @param objectKey                         The URL-encoded human friendly name
-     *                                          of the object. (required)
-     * @param createSignedResourceOptionaParams class containing all optional
-     *                                          parameters for the
-     *                                          createSignedResource method.
+     * @param bucketKey                          The bucket key of the bucket that
+     *                                           contains the objects you are
+     *                                           operating on. (required)
+     * @param objectKey                          The URL-encoded human friendly name
+     *                                           of the object. (required)
+     * @param createSignedResourceOptionalParams class containing all optional
+     *                                           parameters for the
+     *                                           createSignedResource method.
      * @return CreateObjectSigned
      * @throws OssApiException when an API call fails.
      */
@@ -686,10 +688,11 @@ public class OssClient extends BaseClient {
      * 
      * **Note:** Bucket keys will not be immediately available for reuse.
      * 
-     * @param bucketKey                 The bucket key of the bucket to delete.
-     *                                  (required)
-     * @param deleteBucketOptionaParams class containing all optional parameters for
-     *                                  the deleteBucket method.
+     * @param bucketKey                  The bucket key of the bucket to delete.
+     *                                   (required)
+     * @param deleteBucketOptionalParams class containing all optional parameters
+     *                                   for
+     *                                   the deleteBucket method.
      * @throws OssApiException when an API call fails.
      */
 
@@ -731,12 +734,14 @@ public class OssClient extends BaseClient {
      * Delete Object
      * Deletes an object from the bucket.
      * 
-     * @param bucketKey                 The bucket key of the bucket that contains
-     *                                  the objects you are operating on. (required)
-     * @param objectKey                 The URL-encoded human friendly name of the
-     *                                  object. (required)
-     * @param deleteObjectOptionaParams class containing all optional parameters for
-     *                                  the deleteObject method.
+     * @param bucketKey                  The bucket key of the bucket that contains
+     *                                   the objects you are operating on.
+     *                                   (required)
+     * @param objectKey                  The URL-encoded human friendly name of the
+     *                                   object. (required)
+     * @param deleteObjectOptionalParams class containing all optional parameters
+     *                                   for
+     *                                   the deleteObject method.
      * @throws OssApiException when an API call fails.
      */
 
@@ -785,16 +790,17 @@ public class OssClient extends BaseClient {
      * Only applications that own the bucket containing the object can call this
      * operation.
      * 
-     * @param hash                              The ID component of the signed URL.
-     *                                          **Note:** The signed URL returned by
-     *                                          [Generate OSS Signed
-     *                                          URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/)
-     *                                          contains
-     *                                          &#x60;&#x60;hash&#x60;&#x60; as a
-     *                                          URI parameter. (required)
-     * @param deleteSignedResourceOptionaParams class containing all optional
-     *                                          parameters for the
-     *                                          deleteSignedResource method.
+     * @param hash                               The ID component of the signed URL.
+     *                                           **Note:** The signed URL returned
+     *                                           by
+     *                                           [Generate OSS Signed
+     *                                           URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/)
+     *                                           contains
+     *                                           &#x60;&#x60;hash&#x60;&#x60; as a
+     *                                           URI parameter. (required)
+     * @param deleteSignedResourceOptionalParams class containing all optional
+     *                                           parameters for the
+     *                                           deleteSignedResource method.
      * @throws OssApiException when an API call fails.
      */
 
@@ -844,10 +850,11 @@ public class OssClient extends BaseClient {
      * All other applications that call this operation will receive a &quot;403
      * Forbidden&quot; error.
      * 
-     * @param bucketKey                     The bucket key of the bucket to query.
-     *                                      (required)
-     * @param getBucketDetailsOptionaParams class containing all optional parameters
-     *                                      for the getBucketDetails method.
+     * @param bucketKey                      The bucket key of the bucket to query.
+     *                                       (required)
+     * @param getBucketDetailsOptionalParams class containing all optional
+     *                                       parameters
+     *                                       for the getBucketDetails method.
      * @return Bucket
      * @throws OssApiException when an API call fails.
      */
@@ -887,8 +894,8 @@ public class OssClient extends BaseClient {
      * List Buckets
      * Returns a list of buckets owned by the application.
      * 
-     * @param getBucketsOptionaParams class containing all optional parameters for
-     *                                the getBuckets method.
+     * @param getBucketsOptionalParams class containing all optional parameters for
+     *                                 the getBuckets method.
      * @return Buckets
      * @throws OssApiException when an API call fails.
      */
@@ -932,13 +939,14 @@ public class OssClient extends BaseClient {
      * Get Object Details
      * Returns detailed information about the specified object.
      * 
-     * @param bucketKey                     The bucket key of the bucket that
-     *                                      contains the objects you are operating
-     *                                      on. (required)
-     * @param objectKey                     The URL-encoded human friendly name of
-     *                                      the object. (required)
-     * @param getObjectDetailsOptionaParams class containing all optional parameters
-     *                                      for the getObjectDetails method.
+     * @param bucketKey                      The bucket key of the bucket that
+     *                                       contains the objects you are operating
+     *                                       on. (required)
+     * @param objectKey                      The URL-encoded human friendly name of
+     *                                       the object. (required)
+     * @param getObjectDetailsOptionalParams class containing all optional
+     *                                       parameters
+     *                                       for the getObjectDetails method.
      * @return ObjectFullDetails
      * @throws OssApiException when an API call fails.
      */
@@ -991,10 +999,11 @@ public class OssClient extends BaseClient {
      * applications that call this operation will receive a &quot;403
      * Forbidden&quot; error.
      * 
-     * @param bucketKey               The bucket key of the bucket that contains the
-     *                                objects you are operating on. (required)
-     * @param getObjectsOptionaParams class containing all optional parameters for
-     *                                the getObjects method.
+     * @param bucketKey                The bucket key of the bucket that contains
+     *                                 the
+     *                                 objects you are operating on. (required)
+     * @param getObjectsOptionalParams class containing all optional parameters for
+     *                                 the getObjects method.
      * @return BucketObjects
      * @throws OssApiException when an API call fails.
      */
@@ -1049,15 +1058,15 @@ public class OssClient extends BaseClient {
      * URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/) contains the
      * &#x60;&#x60;hash&#x60;&#x60; URI parameter as well.
      * 
-     * @param hash                           The ID component of the signed URL.
-     *                                       **Note:** The signed URL returned by
-     *                                       [Generate OSS Signed
-     *                                       URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/)
-     *                                       contains &#x60;&#x60;hash&#x60;&#x60;
-     *                                       as a URI parameter. (required)
-     * @param getSignedResourceOptionaParams class containing all optional
-     *                                       parameters for the getSignedResource
-     *                                       method.
+     * @param hash                            The ID component of the signed URL.
+     *                                        **Note:** The signed URL returned by
+     *                                        [Generate OSS Signed
+     *                                        URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/)
+     *                                        contains &#x60;&#x60;hash&#x60;&#x60;
+     *                                        as a URI parameter. (required)
+     * @param getSignedResourceOptionalParams class containing all optional
+     *                                        parameters for the getSignedResource
+     *                                        method.
      * @return File
      * @throws OssApiException when an API call fails.
      */
@@ -1157,13 +1166,14 @@ public class OssClient extends BaseClient {
      * also allow upload/download and can be configured for access by other
      * applications, making them suitable for sharing objects across applications.
      * 
-     * @param bucketKey                     The bucket key of the bucket that
-     *                                      contains the objects you are operating
-     *                                      on. (required)
-     * @param objectKey                     The URL-encoded human friendly name of
-     *                                      the object. (required)
-     * @param signedS3DownloadOptionaParams class containing all optional parameters
-     *                                      for the signedS3Download method.
+     * @param bucketKey                      The bucket key of the bucket that
+     *                                       contains the objects you are operating
+     *                                       on. (required)
+     * @param objectKey                      The URL-encoded human friendly name of
+     *                                       the object. (required)
+     * @param signedS3DownloadOptionalParams class containing all optional
+     *                                       parameters
+     *                                       for the signedS3Download method.
      * @return Signeds3downloadResponse
      * @throws OssApiException when an API call fails.
      */
@@ -1266,13 +1276,15 @@ public class OssClient extends BaseClient {
      * also allow upload/download and can be configured for access by other
      * applications, making them suitable for sharing objects across applications.
      * 
-     * @param bucketKey                   The bucket key of the bucket that contains
-     *                                    the objects you are operating on.
-     *                                    (required)
-     * @param objectKey                   The URL-encoded human friendly name of the
-     *                                    object. (required)
-     * @param signedS3UploadOptionaParams class containing all optional parameters
-     *                                    for the signedS3Upload method.
+     * @param bucketKey                    The bucket key of the bucket that
+     *                                     contains
+     *                                     the objects you are operating on.
+     *                                     (required)
+     * @param objectKey                    The URL-encoded human friendly name of
+     *                                     the
+     *                                     object. (required)
+     * @param signedS3UploadOptionalParams class containing all optional parameters
+     *                                     for the signedS3Upload method.
      * @return Signeds3uploadResponse
      * @throws OssApiException when an API call fails.
      */
@@ -1338,20 +1350,21 @@ public class OssClient extends BaseClient {
      * &#x60;&#x60;readwrite&#x60;&#x60; for the &#x60;&#x60;access&#x60;&#x60;
      * parameter.
      * 
-     * @param hash                              The ID component of the signed URL.
-     *                                          **Note:** The signed URL returned by
-     *                                          [Generate OSS Signed
-     *                                          URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/)
-     *                                          contains
-     *                                          &#x60;&#x60;hash&#x60;&#x60; as a
-     *                                          URI parameter. (required)
-     * @param contentLength                     The size of the data contained in
-     *                                          the request body, in bytes.
-     *                                          (required)
-     * @param body                              The object to upload. (required)
-     * @param uploadSignedResourceOptionaParams class containing all optional
-     *                                          parameters for the
-     *                                          uploadSignedResource method.
+     * @param hash                               The ID component of the signed URL.
+     *                                           **Note:** The signed URL returned
+     *                                           by
+     *                                           [Generate OSS Signed
+     *                                           URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/)
+     *                                           contains
+     *                                           &#x60;&#x60;hash&#x60;&#x60; as a
+     *                                           URI parameter. (required)
+     * @param contentLength                      The size of the data contained in
+     *                                           the request body, in bytes.
+     *                                           (required)
+     * @param body                               The object to upload. (required)
+     * @param uploadSignedResourceOptionalParams class containing all optional
+     *                                           parameters for the
+     *                                           uploadSignedResource method.
      * @return ObjectDetails
      * @throws OssApiException when an API call fails.
      */
@@ -1418,27 +1431,30 @@ public class OssClient extends BaseClient {
      * URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/) contains the
      * &#x60;&#x60;hash&#x60;&#x60; as a URI parameter.
      * 
-     * @param hash                                    The ID component of the signed
-     *                                                URL. **Note:** The signed URL
-     *                                                returned by [Generate OSS
-     *                                                Signed
-     *                                                URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/)
-     *                                                contains
-     *                                                &#x60;&#x60;hash&#x60;&#x60;
-     *                                                as a URI parameter. (required)
-     * @param contentRange                            The byte range to upload,
-     *                                                specified in the form
-     *                                                &#x60;&#x60;bytes&#x3D;&lt;START_BYTE&gt;-&lt;END_BYTE&gt;&#x60;&#x60;.
-     *                                                (required)
-     * @param sessionId                               An ID to uniquely identify the
-     *                                                file upload session.
-     *                                                (required)
-     * @param body                                    The chunk to upload.
-     *                                                (required)
-     * @param uploadSignedResourcesChunkOptionaParams class containing all optional
-     *                                                parameters for the
-     *                                                uploadSignedResourcesChunk
-     *                                                method.
+     * @param hash                                     The ID component of the
+     *                                                 signed
+     *                                                 URL. **Note:** The signed URL
+     *                                                 returned by [Generate OSS
+     *                                                 Signed
+     *                                                 URL](/en/docs/data/v2/reference/http/signedresources-:id-GET/)
+     *                                                 contains
+     *                                                 &#x60;&#x60;hash&#x60;&#x60;
+     *                                                 as a URI parameter.
+     *                                                 (required)
+     * @param contentRange                             The byte range to upload,
+     *                                                 specified in the form
+     *                                                 &#x60;&#x60;bytes&#x3D;&lt;START_BYTE&gt;-&lt;END_BYTE&gt;&#x60;&#x60;.
+     *                                                 (required)
+     * @param sessionId                                An ID to uniquely identify
+     *                                                 the
+     *                                                 file upload session.
+     *                                                 (required)
+     * @param body                                     The chunk to upload.
+     *                                                 (required)
+     * @param uploadSignedResourcesChunkOptionalParams class containing all optional
+     *                                                 parameters for the
+     *                                                 uploadSignedResourcesChunk
+     *                                                 method.
      * @return ObjectDetails
      * @throws OssApiException when an API call fails.
      */
