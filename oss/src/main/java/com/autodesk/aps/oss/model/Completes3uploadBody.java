@@ -23,24 +23,26 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * The request payload for a Complete Upload to S3 Signed URL operation.
  */
 @Schema(description = "The request payload for a Complete Upload to S3 Signed URL operation.")
 @JsonPropertyOrder({
-  Completes3uploadBody.JSON_PROPERTY_UPLOAD_KEY,
-  Completes3uploadBody.JSON_PROPERTY_SIZE,
-  Completes3uploadBody.JSON_PROPERTY_E_TAGS
+    Completes3uploadBody.JSON_PROPERTY_UPLOAD_KEY,
+    Completes3uploadBody.JSON_PROPERTY_SIZE,
+    Completes3uploadBody.JSON_PROPERTY_E_TAGS
 })
 @JsonTypeName("completes3upload_body")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -55,17 +57,19 @@ public class Completes3uploadBody {
   public static final String JSON_PROPERTY_E_TAGS = "eTags";
   private List<String> eTags = null;
 
-
   public Completes3uploadBody uploadKey(String uploadKey) {
-    
+
     this.uploadKey = uploadKey;
     return this;
   }
 
-   /**
-   * The ID uniquely identifying the upload session that was returned when you called [Get S3 Signed Upload URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/).
+  /**
+   * The ID uniquely identifying the upload session that was returned when you
+   * called [Get S3 Signed Upload
+   * URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/).
+   * 
    * @return uploadKey
-  **/
+   **/
   @Schema(required = true, description = "The ID uniquely identifying the upload session that was returned when you called [Get S3 Signed Upload URL](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/).")
   @JsonProperty(JSON_PROPERTY_UPLOAD_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -74,24 +78,24 @@ public class Completes3uploadBody {
     return uploadKey;
   }
 
-
   @JsonProperty(JSON_PROPERTY_UPLOAD_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUploadKey(String uploadKey) {
     this.uploadKey = uploadKey;
   }
 
-
   public Completes3uploadBody size(Long size) {
-    
+
     this.size = size;
     return this;
   }
 
-   /**
-   * The expected size of the object. If provided, OSS will check this against the object in S3 and return an error if the size does not match.
+  /**
+   * The expected size of the object. If provided, OSS will check this against the
+   * object in S3 and return an error if the size does not match.
+   * 
    * @return size
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The expected size of the object. If provided, OSS will check this against the object in S3 and return an error if the size does not match.")
   @JsonProperty(JSON_PROPERTY_SIZE)
@@ -101,16 +105,14 @@ public class Completes3uploadBody {
     return size;
   }
 
-
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setSize(Long size) {
     this.size = size;
   }
 
-
   public Completes3uploadBody eTags(List<String> eTags) {
-    
+
     this.eTags = eTags;
     return this;
   }
@@ -123,10 +125,17 @@ public class Completes3uploadBody {
     return this;
   }
 
-   /**
-   * An array of eTags. S3 returns an eTag to each upload request, be it for a chunk or an entire file. For a single-part upload, this array contains the expected eTag of the entire object. For a multipart upload, this array contains the expected eTag of each part of the upload; the index of an eTag in the array corresponds to its part number in the upload. If provided, OSS will validate these eTags against the content in S3, and return an error if the eTags do not match.
+  /**
+   * An array of eTags. S3 returns an eTag to each upload request, be it for a
+   * chunk or an entire file. For a single-part upload, this array contains the
+   * expected eTag of the entire object. For a multipart upload, this array
+   * contains the expected eTag of each part of the upload; the index of an eTag
+   * in the array corresponds to its part number in the upload. If provided, OSS
+   * will validate these eTags against the content in S3, and return an error if
+   * the eTags do not match.
+   * 
    * @return eTags
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "An array of eTags. S3 returns an eTag to each upload request, be it for a chunk or an entire file. For a single-part upload, this array contains the expected eTag of the entire object. For a multipart upload, this array contains the expected eTag of each part of the upload; the index of an eTag in the array corresponds to its part number in the upload. If provided, OSS will validate these eTags against the content in S3, and return an error if the eTags do not match.")
   @JsonProperty(JSON_PROPERTY_E_TAGS)
@@ -136,13 +145,11 @@ public class Completes3uploadBody {
     return eTags;
   }
 
-
   @JsonProperty(JSON_PROPERTY_E_TAGS)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void seteTags(List<String> eTags) {
     this.eTags = eTags;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -186,4 +193,3 @@ public class Completes3uploadBody {
   }
 
 }
-

@@ -23,22 +23,24 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.BatchCompletedResults;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * The response to a Complete Batch Upload to S3 Signed URLs operation.
  */
 @Schema(description = "The response to a Complete Batch Upload to S3 Signed URLs operation.")
 @JsonPropertyOrder({
-  BatchcompleteuploadResponse.JSON_PROPERTY_RESULTS
+    BatchcompleteuploadResponse.JSON_PROPERTY_RESULTS
 })
 @JsonTypeName("batchcompleteupload_response")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -47,9 +49,8 @@ public class BatchcompleteuploadResponse {
   public static final String JSON_PROPERTY_RESULTS = "results";
   private Map<String, BatchCompletedResults> results = new HashMap<>();
 
-
   public BatchcompleteuploadResponse results(Map<String, BatchCompletedResults> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -59,10 +60,12 @@ public class BatchcompleteuploadResponse {
     return this;
   }
 
-   /**
-   * A map of the returned results; each key in the map corresponds to an object key in the batch, and the value includes the results for that object.
+  /**
+   * A map of the returned results; each key in the map corresponds to an object
+   * key in the batch, and the value includes the results for that object.
+   * 
    * @return results
-  **/
+   **/
   @Schema(required = true, description = "A map of the returned results; each key in the map corresponds to an object key in the batch, and the value includes the results for that object.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -71,13 +74,11 @@ public class BatchcompleteuploadResponse {
     return results;
   }
 
-
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResults(Map<String, BatchCompletedResults> results) {
     this.results = results;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -117,4 +118,3 @@ public class BatchcompleteuploadResponse {
   }
 
 }
-

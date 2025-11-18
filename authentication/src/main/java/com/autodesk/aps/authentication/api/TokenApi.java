@@ -33,6 +33,7 @@ import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.net.URIBuilder;
+
 import com.autodesk.aps.authentication.AuthenticationApiException;
 import com.autodesk.aps.authentication.BaseApi;
 import com.autodesk.aps.authentication.model.GrantType;
@@ -605,7 +606,7 @@ public class TokenApi extends BaseApi {
    *                      **Note** This is required only for Traditional Web Apps
    *                      and Server-to-Server Apps. It is not required for
    *                      Desktop, Mobile, and Single-Page Apps. (optional)
-   * @return ApiResponse<?>
+   * @return ApiResponse&lt;?&gt;
    */
   public ApiResponse<?> revoke(String token, TokenTypeHint tokenTypeHint, String authorization, String clientId)
       throws AuthenticationApiException {

@@ -29,8 +29,9 @@ package com.autodesk.aps.authentication.model;
  */
 public class RevokeOptionalParams {
     private String clientSecret;
+
     private RevokeOptionalParams(Builder builder) {
-        this.clientSecret = builder.clientSecret    ;
+        this.clientSecret = builder.clientSecret;
     }
 
     /**
@@ -39,17 +40,16 @@ public class RevokeOptionalParams {
     public static class Builder {
         private String clientSecret;
 
-
         /**
-         * @param authorization Must be &#x60;&#x60;Bearer
-         *                      &lt;BASE64_ENCODED_STRING&gt;&#x60;&#x60; where
-         *                      &#x60;&#x60;&lt;BASE64_ENCODED_STRING&gt;&#x60;&#x60; is
-         *                      the Base64 encoding of the concatenated string
-         *                      &#x60;&#x60;&lt;CLIENT_ID&gt;:&lt;CLIENT_SECRET&gt;&#x60;&#x60;.&#39;
+         * @param clientSecret Must be &#x60;&#x60;Bearer
+         *                     &lt;BASE64_ENCODED_STRING&gt;&#x60;&#x60; where
+         *                     &#x60;&#x60;&lt;BASE64_ENCODED_STRING&gt;&#x60;&#x60; is
+         *                     the Base64 encoding of the concatenated string
+         *                     &#x60;&#x60;&lt;CLIENT_ID&gt;:&lt;CLIENT_SECRET&gt;&#x60;&#x60;.&#39;
          * 
-         *                      **Note** This header is required only for Traditional
-         *                      Web Apps and Server-to-Server Apps. It is not required
-         *                      for Desktop, Mobile, and Single-Page Apps.
+         *                     **Note** This header is required only for Traditional
+         *                     Web Apps and Server-to-Server Apps. It is not required
+         *                     for Desktop, Mobile, and Single-Page Apps.
          * 
          *
          * @return The Builder instance for chaining.
@@ -58,7 +58,6 @@ public class RevokeOptionalParams {
             this.clientSecret = clientSecret;
             return this;
         }
-
 
         /**
          * Builds and returns an instance of RevokeOptionalParams.

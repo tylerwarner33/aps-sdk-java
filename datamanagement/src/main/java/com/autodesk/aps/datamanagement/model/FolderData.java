@@ -25,6 +25,8 @@ package com.autodesk.aps.datamanagement.model;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -75,11 +77,23 @@ public class FolderData implements FolderContentsData, FolderRefsData, RefsData,
    * @return type
    **/
   @Schema(required = true, description = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public TypeFolder getType() {
     return type;
+  }
+
+  @JsonGetter(JSON_PROPERTY_TYPE)
+  @Override
+  /**
+   * Provides the string representation of the type field for JSON
+   * serialization
+   * and polymorphic type discrimination.
+   *
+   * @return the string value of the type field, or null if type is not set
+   */
+  public String getTypeValue() {
+    return type != null ? type.getValue() : null;
   }
 
   @JsonProperty(JSON_PROPERTY_TYPE)

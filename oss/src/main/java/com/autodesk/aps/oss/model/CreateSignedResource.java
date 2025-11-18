@@ -24,19 +24,22 @@
 package com.autodesk.aps.oss.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * The request payload for a Generate OSS Signed URL operation.
  */
 @Schema(description = "The request payload for a Generate OSS Signed URL operation.")
 @JsonPropertyOrder({
-  CreateSignedResource.JSON_PROPERTY_MINUTES_EXPIRATION,
-  CreateSignedResource.JSON_PROPERTY_SINGLE_USE
+    CreateSignedResource.JSON_PROPERTY_MINUTES_EXPIRATION,
+    CreateSignedResource.JSON_PROPERTY_SINGLE_USE
 })
 @JsonTypeName("create_signed_resource")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -48,20 +51,21 @@ public class CreateSignedResource {
   public static final String JSON_PROPERTY_SINGLE_USE = "singleUse";
   private Boolean singleUse;
 
-
   public CreateSignedResource minutesExpiration(Integer minutesExpiration) {
-    
+
     this.minutesExpiration = minutesExpiration;
     return this;
   }
 
-   /**
-   * The time window (in minutes) the signed URL will remain usable. Acceptable values &#x3D; 1-60 minutes. Default &#x3D; 2 minutes.
-
-**Tip:** Use the smallest possible time window to minimize exposure of the signed URL.
-
+  /**
+   * The time window (in minutes) the signed URL will remain usable. Acceptable
+   * values &#x3D; 1-60 minutes. Default &#x3D; 2 minutes.
+   ** 
+   * Tip:** Use the smallest possible time window to minimize exposure of the
+   * signed URL.
+   * 
    * @return minutesExpiration
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The time window (in minutes) the signed URL will remain usable. Acceptable values = 1-60 minutes. Default = 2 minutes.  **Tip:** Use the smallest possible time window to minimize exposure of the signed URL. ")
   @JsonProperty(JSON_PROPERTY_MINUTES_EXPIRATION)
@@ -71,27 +75,29 @@ public class CreateSignedResource {
     return minutesExpiration;
   }
 
-
   @JsonProperty(JSON_PROPERTY_MINUTES_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setMinutesExpiration(Integer minutesExpiration) {
     this.minutesExpiration = minutesExpiration;
   }
 
-
   public CreateSignedResource singleUse(Boolean singleUse) {
-    
+
     this.singleUse = singleUse;
     return this;
   }
 
-   /**
-   * &#x60;&#x60;true&#x60;&#x60; : The signed URL will expire immediately after use. For example, when downloading an object, URL will expire once the download is complete.
-
-&#x60;&#x60;false&#x60;&#x60; : (Default) The signed URL will remain usable for the entire time window specified by &#x60;&#x60;minutesExpiration&#x60;&#x60;. 
-
+  /**
+   * &#x60;&#x60;true&#x60;&#x60; : The signed URL will expire immediately after
+   * use. For example, when downloading an object, URL will expire once the
+   * download is complete.
+   * 
+   * &#x60;&#x60;false&#x60;&#x60; : (Default) The signed URL will remain usable
+   * for the entire time window specified by
+   * &#x60;&#x60;minutesExpiration&#x60;&#x60;.
+   * 
    * @return singleUse
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "``true`` : The signed URL will expire immediately after use. For example, when downloading an object, URL will expire once the download is complete.  ``false`` : (Default) The signed URL will remain usable for the entire time window specified by ``minutesExpiration``.  ")
   @JsonProperty(JSON_PROPERTY_SINGLE_USE)
@@ -101,13 +107,11 @@ public class CreateSignedResource {
     return singleUse;
   }
 
-
   @JsonProperty(JSON_PROPERTY_SINGLE_USE)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setSingleUse(Boolean singleUse) {
     this.singleUse = singleUse;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -149,4 +153,3 @@ public class CreateSignedResource {
   }
 
 }
-

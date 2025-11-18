@@ -23,23 +23,25 @@
 
 package com.autodesk.aps.oss.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.BatchcompleteuploadObjectRequests;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * The request payload for the Complete Batch Upload to S3 Signed URLs operation.
+ * The request payload for the Complete Batch Upload to S3 Signed URLs
+ * operation.
  */
 @Schema(description = "The request payload for the Complete Batch Upload to S3 Signed URLs operation.")
 @JsonPropertyOrder({
-  BatchcompleteuploadObject.JSON_PROPERTY_REQUESTS
+    BatchcompleteuploadObject.JSON_PROPERTY_REQUESTS
 })
 @JsonTypeName("batchcompleteupload_object")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -48,9 +50,8 @@ public class BatchcompleteuploadObject {
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<BatchcompleteuploadObjectRequests> requests = new ArrayList<>();
 
-
   public BatchcompleteuploadObject requests(List<BatchcompleteuploadObjectRequests> requests) {
-    
+
     this.requests = requests;
     return this;
   }
@@ -60,10 +61,11 @@ public class BatchcompleteuploadObject {
     return this;
   }
 
-   /**
+  /**
    * An array of objects, each of which represents an upload to complete.
+   * 
    * @return requests
-  **/
+   **/
   @Schema(required = true, description = "An array of objects, each of which represents an upload to complete.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -72,13 +74,11 @@ public class BatchcompleteuploadObject {
     return requests;
   }
 
-
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequests(List<BatchcompleteuploadObjectRequests> requests) {
     this.requests = requests;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -118,4 +118,3 @@ public class BatchcompleteuploadObject {
   }
 
 }
-

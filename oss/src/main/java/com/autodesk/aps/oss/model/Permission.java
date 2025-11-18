@@ -24,19 +24,22 @@
 package com.autodesk.aps.oss.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
-import com.autodesk.aps.oss.model.PermissionAccess;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * An object representing the permissions for accessing a bucket.
  */
 @Schema(description = "An object representing the permissions for accessing a bucket.")
 @JsonPropertyOrder({
-  Permission.JSON_PROPERTY_AUTH_ID,
-  Permission.JSON_PROPERTY_ACCESS
+    Permission.JSON_PROPERTY_AUTH_ID,
+    Permission.JSON_PROPERTY_ACCESS
 })
 @JsonTypeName("Permission")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -48,17 +51,17 @@ public class Permission {
   public static final String JSON_PROPERTY_ACCESS = "access";
   private PermissionAccess access;
 
-
   public Permission authId(String authId) {
-    
+
     this.authId = authId;
     return this;
   }
 
-   /**
+  /**
    * The Client ID of the application.
+   * 
    * @return authId
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "The Client ID of the application.")
   @JsonProperty(JSON_PROPERTY_AUTH_ID)
@@ -68,24 +71,23 @@ public class Permission {
     return authId;
   }
 
-
   @JsonProperty(JSON_PROPERTY_AUTH_ID)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setAuthId(String authId) {
     this.authId = authId;
   }
 
-
   public Permission access(PermissionAccess access) {
-    
+
     this.access = access;
     return this;
   }
 
-   /**
+  /**
    * Get access
+   * 
    * @return access
-  **/
+   **/
   @javax.annotation.Nullable
   @Schema(description = "")
   @JsonProperty(JSON_PROPERTY_ACCESS)
@@ -95,13 +97,11 @@ public class Permission {
     return access;
   }
 
-
   @JsonProperty(JSON_PROPERTY_ACCESS)
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   public void setAccess(PermissionAccess access) {
     this.access = access;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -143,4 +143,3 @@ public class Permission {
   }
 
 }
-
