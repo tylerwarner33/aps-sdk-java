@@ -1,4 +1,4 @@
-# APS SDK for Java 
+# APS SDK for Java
 
 
 [![Maven Central](https://img.shields.io/maven-central/v/org.apache.maven/apache-maven.svg?label=Maven%20Central&versionPrefix=3.9.9)](https://search.maven.org/artifact/org.apache.maven/apache-maven)
@@ -19,17 +19,16 @@ Please use any of the following channels for support. Github issues to track SDK
 The Developer Portal has everything APS:
 
 - [Documentation](https://aps.autodesk.com/developer/documentation) page for each service.
-- Visit [APS Tutorials](http://aps.autodesk.com/tutorials) and select JAVA tutorials. _[to be added post release]_
 
 
 ## Java Packages 
-_[Links to maven central to be added post release]_
-- [Authentication](Link)
-- [Data Management](Link)
-- [Model Derivative](Link)
-- [OSS](Link)
-- [SDK Manager](Link)
-- [Webhooks](Link)
+
+- [Authentication](https://central.sonatype.com/artifact/com.autodesk.aps/authentication-sdk)
+- [Data Management](https://central.sonatype.com/artifact/com.autodesk.aps/datamanagement-sdk)
+- [Model Derivative](https://central.sonatype.com/artifact/com.autodesk.aps/modelderivative-sdk)
+- [OSS](https://central.sonatype.com/artifact/com.autodesk.aps/oss-sdk)
+- [SDK Manager](https://central.sonatype.com/artifact/com.autodesk.aps/sdkmanager)
+- [Webhooks](https://central.sonatype.com/artifact/com.autodesk.aps/webhooks-sdk)
 
 ## Contributions
 

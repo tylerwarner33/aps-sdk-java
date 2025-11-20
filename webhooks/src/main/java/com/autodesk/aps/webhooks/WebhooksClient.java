@@ -136,21 +136,21 @@ public class WebhooksClient extends BaseClient {
      * Adds a new webhook to receive notifications of the occurrence of a specified
      * event for the specified system.
      * 
-     * @param system                             The ID of the system the webhook
-     *                                           applies to. For example data for
-     *                                           Data Management. See [Supported
-     *                                           Events](/en/docs/webhooks/v1/reference/events/)
-     *                                           for a full list of supported
-     *                                           systems and their IDs. (required)
-     * @param event                              The ID of the event the webhook
-     *                                           monitors. See [Supported
-     *                                           Events](/en/docs/webhooks/v1/reference/events/)
-     *                                           for a full list of events.
-     *                                           (required)
-     * @param hookPayload                        (required)
-     * @param createSystemEventHookOptionaParams class containing all optional
-     *                                           parameters for the
-     *                                           createSystemEventHook method.
+     * @param system                              The ID of the system the webhook
+     *                                            applies to. For example data for
+     *                                            Data Management. See [Supported
+     *                                            Events](/en/docs/webhooks/v1/reference/events/)
+     *                                            for a full list of supported
+     *                                            systems and their IDs. (required)
+     * @param event                               The ID of the event the webhook
+     *                                            monitors. See [Supported
+     *                                            Events](/en/docs/webhooks/v1/reference/events/)
+     *                                            for a full list of events.
+     *                                            (required)
+     * @param hookPayload                         (required)
+     * @param createSystemEventHookOptionalParams class containing all optional
+     *                                            parameters for the
+     *                                            createSystemEventHook method.
      * @throws WebhooksApiException when an API call fails.
      */
 
@@ -202,15 +202,18 @@ public class WebhooksClient extends BaseClient {
      * Adds a new webhook to receive notifications of all events for the specified
      * system.
      * 
-     * @param system                        The ID of the system the webhook applies
-     *                                      to. For example data for Data
-     *                                      Management. See [Supported
-     *                                      Events](/en/docs/webhooks/v1/reference/events/)
-     *                                      for a full list of supported systems and
-     *                                      their IDs. (required)
-     * @param hookPayload                   (required)
-     * @param createSystemHookOptionaParams class containing all optional parameters
-     *                                      for the createSystemHook method.
+     * @param system                         The ID of the system the webhook
+     *                                       applies
+     *                                       to. For example data for Data
+     *                                       Management. See [Supported
+     *                                       Events](/en/docs/webhooks/v1/reference/events/)
+     *                                       for a full list of supported systems
+     *                                       and
+     *                                       their IDs. (required)
+     * @param hookPayload                    (required)
+     * @param createSystemHookOptionalParams class containing all optional
+     *                                       parameters
+     *                                       for the createSystemHook method.
      * @return Hook
      * @throws WebhooksApiException when an API call fails.
      */
@@ -300,10 +303,10 @@ public class WebhooksClient extends BaseClient {
      * Token](/en/docs/webhooks/v1/developers_guide/basics/#secret-token) section in
      * API Basics for more information.
      * 
-     * @param tokenPayload             The request payload for a Create Secret
-     *                                 request (required)
-     * @param createTokenOptionaParams class containing all optional parameters for
-     *                                 the createToken method.
+     * @param tokenPayload              The request payload for a Create Secret
+     *                                  request (required)
+     * @param createTokenOptionalParams class containing all optional parameters for
+     *                                  the createToken method.
      * @return Token
      * @throws WebhooksApiException when an API call fails.
      */
@@ -353,22 +356,22 @@ public class WebhooksClient extends BaseClient {
      * Delete a Webhook
      * Deletes the webhook specified by its ID.
      * 
-     * @param system                             The ID of the system the webhook
-     *                                           applies to. For example data for
-     *                                           Data Management. See [Supported
-     *                                           Events](/en/docs/webhooks/v1/reference/events/)
-     *                                           for a full list of supported
-     *                                           systems and their IDs. (required)
-     * @param event                              The ID of the event the webhook
-     *                                           monitors. See [Supported
-     *                                           Events](/en/docs/webhooks/v1/reference/events/)
-     *                                           for a full list of events.
-     *                                           (required)
-     * @param hookId                             The ID of the webhook to delete.
-     *                                           (required)
-     * @param deleteSystemEventHookOptionaParams class containing all optional
-     *                                           parameters for the
-     *                                           deleteSystemEventHook method.
+     * @param system                              The ID of the system the webhook
+     *                                            applies to. For example data for
+     *                                            Data Management. See [Supported
+     *                                            Events](/en/docs/webhooks/v1/reference/events/)
+     *                                            for a full list of supported
+     *                                            systems and their IDs. (required)
+     * @param event                               The ID of the event the webhook
+     *                                            monitors. See [Supported
+     *                                            Events](/en/docs/webhooks/v1/reference/events/)
+     *                                            for a full list of events.
+     *                                            (required)
+     * @param hookId                              The ID of the webhook to delete.
+     *                                            (required)
+     * @param deleteSystemEventHookOptionalParams class containing all optional
+     *                                            parameters for the
+     *                                            deleteSystemEventHook method.
      * @throws WebhooksApiException when an API call fails.
      */
 
@@ -446,8 +449,8 @@ public class WebhooksClient extends BaseClient {
      * Token](/en/docs/webhooks/v1/developers_guide/basics/#secret-token) section in
      * API Basics for more information.
      * 
-     * @param deleteTokenOptionaParams class containing all optional parameters for
-     *                                 the deleteToken method.
+     * @param deleteTokenOptionalParams class containing all optional parameters for
+     *                                  the deleteToken method.
      * @throws WebhooksApiException when an API call fails.
      */
 
@@ -504,8 +507,8 @@ public class WebhooksClient extends BaseClient {
      * **Note:** This operation requires an access token through a Client
      * Credentials flow (two-legged OAuth).
      * 
-     * @param getAppHooksOptionaParams class containing all optional parameters for
-     *                                 the getAppHooks method.
+     * @param getAppHooksOptionalParams class containing all optional parameters for
+     *                                  the getAppHooks method.
      * @return Hooks
      * @throws WebhooksApiException when an API call fails.
      */
@@ -558,20 +561,20 @@ public class WebhooksClient extends BaseClient {
      * Retrieves the details of the webhook for the specified event within the
      * specified system.
      * 
-     * @param system                      The ID of the system the webhook applies
-     *                                    to. For example data for Data Management.
-     *                                    See [Supported
-     *                                    Events](/en/docs/webhooks/v1/reference/events/)
-     *                                    for a full list of supported systems and
-     *                                    their IDs. (required)
-     * @param event                       The ID of the event the webhook monitors.
-     *                                    See [Supported
-     *                                    Events](/en/docs/webhooks/v1/reference/events/)
-     *                                    for a full list of events. (required)
-     * @param hookId                      The ID of the webhook to delete.
-     *                                    (required)
-     * @param getHookDetailsOptionaParams class containing all optional parameters
-     *                                    for the getHookDetails method.
+     * @param system                       The ID of the system the webhook applies
+     *                                     to. For example data for Data Management.
+     *                                     See [Supported
+     *                                     Events](/en/docs/webhooks/v1/reference/events/)
+     *                                     for a full list of supported systems and
+     *                                     their IDs. (required)
+     * @param event                        The ID of the event the webhook monitors.
+     *                                     See [Supported
+     *                                     Events](/en/docs/webhooks/v1/reference/events/)
+     *                                     for a full list of events. (required)
+     * @param hookId                       The ID of the webhook to delete.
+     *                                     (required)
+     * @param getHookDetailsOptionalParams class containing all optional parameters
+     *                                     for the getHookDetails method.
      * @return HookDetails
      * @throws WebhooksApiException when an API call fails.
      */
@@ -628,8 +631,9 @@ public class WebhooksClient extends BaseClient {
      * &#x60;&#x60;next&#x60;&#x60; value from the previous response to fetch
      * subsequent pages.
      * 
-     * @param getHooksOptionaParams class containing all optional parameters for the
-     *                              getHooks method.
+     * @param getHooksOptionalParams class containing all optional parameters for
+     *                               the
+     *                               getHooks method.
      * @return Hooks
      * @throws WebhooksApiException when an API call fails.
      */
@@ -691,19 +695,21 @@ public class WebhooksClient extends BaseClient {
      * &#x60;&#x60;next&#x60;&#x60; value from the previous response to fetch
      * subsequent pages.
      * 
-     * @param system                           The ID of the system the webhook
-     *                                         applies to. For example data for Data
-     *                                         Management. See [Supported
-     *                                         Events](/en/docs/webhooks/v1/reference/events/)
-     *                                         for a full list of supported systems
-     *                                         and their IDs. (required)
-     * @param event                            The ID of the event the webhook
-     *                                         monitors. See [Supported
-     *                                         Events](/en/docs/webhooks/v1/reference/events/)
-     *                                         for a full list of events. (required)
-     * @param getSystemEventHooksOptionaParams class containing all optional
-     *                                         parameters for the
-     *                                         getSystemEventHooks method.
+     * @param system                            The ID of the system the webhook
+     *                                          applies to. For example data for
+     *                                          Data
+     *                                          Management. See [Supported
+     *                                          Events](/en/docs/webhooks/v1/reference/events/)
+     *                                          for a full list of supported systems
+     *                                          and their IDs. (required)
+     * @param event                             The ID of the event the webhook
+     *                                          monitors. See [Supported
+     *                                          Events](/en/docs/webhooks/v1/reference/events/)
+     *                                          for a full list of events.
+     *                                          (required)
+     * @param getSystemEventHooksOptionalParams class containing all optional
+     *                                          parameters for the
+     *                                          getSystemEventHooks method.
      * @return Hooks
      * @throws WebhooksApiException when an API call fails.
      */
@@ -768,14 +774,14 @@ public class WebhooksClient extends BaseClient {
      * &#x60;&#x60;next&#x60;&#x60; value from the previous response to fetch
      * subsequent pages.
      * 
-     * @param system                      The ID of the system the webhook applies
-     *                                    to. For example data for Data Management.
-     *                                    See [Supported
-     *                                    Events](/en/docs/webhooks/v1/reference/events/)
-     *                                    for a full list of supported systems and
-     *                                    their IDs. (required)
-     * @param getSystemHooksOptionaParams class containing all optional parameters
-     *                                    for the getSystemHooks method.
+     * @param system                       The ID of the system the webhook applies
+     *                                     to. For example data for Data Management.
+     *                                     See [Supported
+     *                                     Events](/en/docs/webhooks/v1/reference/events/)
+     *                                     for a full list of supported systems and
+     *                                     their IDs. (required)
+     * @param getSystemHooksOptionalParams class containing all optional parameters
+     *                                     for the getSystemHooks method.
      * @return Hooks
      * @throws WebhooksApiException when an API call fails.
      */
@@ -853,23 +859,24 @@ public class WebhooksClient extends BaseClient {
      * 
      * See the request body documentation for more information.
      * 
-     * @param system                            The ID of the system the webhook
-     *                                          applies to. For example data for
-     *                                          Data Management. See [Supported
-     *                                          Events](/en/docs/webhooks/v1/reference/events/)
-     *                                          for a full list of supported systems
-     *                                          and their IDs. (required)
-     * @param event                             The ID of the event the webhook
-     *                                          monitors. See [Supported
-     *                                          Events](/en/docs/webhooks/v1/reference/events/)
-     *                                          for a full list of events.
-     *                                          (required)
-     * @param hookId                            The ID of the webhook to delete.
-     *                                          (required)
-     * @param modifyHookPayload                 (required)
-     * @param patchSystemEventHookOptionaParams class containing all optional
-     *                                          parameters for the
-     *                                          patchSystemEventHook method.
+     * @param system                             The ID of the system the webhook
+     *                                           applies to. For example data for
+     *                                           Data Management. See [Supported
+     *                                           Events](/en/docs/webhooks/v1/reference/events/)
+     *                                           for a full list of supported
+     *                                           systems
+     *                                           and their IDs. (required)
+     * @param event                              The ID of the event the webhook
+     *                                           monitors. See [Supported
+     *                                           Events](/en/docs/webhooks/v1/reference/events/)
+     *                                           for a full list of events.
+     *                                           (required)
+     * @param hookId                             The ID of the webhook to delete.
+     *                                           (required)
+     * @param modifyHookPayload                  (required)
+     * @param patchSystemEventHookOptionalParams class containing all optional
+     *                                           parameters for the
+     *                                           patchSystemEventHook method.
      * @throws WebhooksApiException when an API call fails.
      */
 
@@ -955,9 +962,10 @@ public class WebhooksClient extends BaseClient {
      * Token](/en/docs/webhooks/v1/developers_guide/basics/#secret-token) section in
      * API Basics for more information.
      * 
-     * @param tokenPayload          (required)
-     * @param putTokenOptionaParams class containing all optional parameters for the
-     *                              putToken method.
+     * @param tokenPayload           (required)
+     * @param putTokenOptionalParams class containing all optional parameters for
+     *                               the
+     *                               putToken method.
      * @throws WebhooksApiException when an API call fails.
      */
 
