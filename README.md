@@ -5,7 +5,7 @@
 [![java](https://img.shields.io/badge/java-17-blue.svg)](https://openjdk.java.net/projects/jdk/17/)
 [![license](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The **Autodesk Platform Services (APS) SDK for Java** helps Java developers create applications that leverage the various APS services: Model Derivative, Data Management, OSS, Webhooks. More services soon.
+The **Autodesk Platform Services (APS) SDK for Java** helps Java developers create applications that leverage the various APS services: Authentication, Data Management, Model Derivative, OSS, Webhooks. More services soon.
 
 ## Getting Help
 
