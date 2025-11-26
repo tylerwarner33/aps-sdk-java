@@ -439,7 +439,7 @@ public class ItemAttributes {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExtension(ItemExtensionWithSchemaLink extension) {
     this.extension = extension;
-  }  
+  }
 
   public ItemAttributes pathInProject(String pathInProject) {
 
